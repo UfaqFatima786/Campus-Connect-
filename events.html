@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusConnect | Events</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-glow glow-one"></div>
+    <div class="bg-glow glow-two"></div>
+    <header class="navbar">
+        <a href="dashboard.html" class="logo">
+            <span class="logo-icon">
+                <i class="fa-solid fa-graduation-cap"></i>
+            </span>
+            <span>Campus<span>Connect</span></span>
+        </a>
+        <nav class="nav-links">
+            <a href="index.html">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+            </a>
+            <a href="posts.html">
+                <i class="fa-solid fa-users"></i>
+                Community
+            </a>
+            <a href="events.html" class="active">
+                <i class="fa-solid fa-calendar-days"></i>
+                Events
+            </a>
+            <a href="studypartners.html">
+                <i class="fa-solid fa-user-group"></i>
+                Study Partners
+            </a>
+            <a href="polls.html">
+                <i class="fa-solid fa-square-poll-vertical"></i>
+                Polls
+            </a>
+        </nav>
+        <div class="nav-actions">
+            <button class="icon-btn">
+                <i class="fa-regular fa-bell"></i>
+            </button>
+            <a href="profile.html" class="profile-mini">
+                <div class="avatar">UF</div>
+                <div class="profile-mini-text">
+                    <strong>Ufaq</strong>
+                    <small>Student</small>
+                </div>
+            </a>
+            <button class="menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+    <main class="events-container">
+        <div class="page-heading">
+            <span class="small-label">
+                <i class="fa-solid fa-calendar-star"></i>
+                CAMPUS ACTIVITIES
+            </span>
+            <h1>Discover Events</h1>
+            <p>
+                Discover workshops, meetups and exciting activities
+                happening around your campus.
+            </p>
+        </div>
+        <div class="event-toolbar">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input
+                    type="text"
+                    placeholder="Search events...">
+            </div>
+            <select class="filter-select">
+                <option>All Events</option>
+                <option>Workshops</option>
+                <option>Meetups</option>
+                <option>Seminars</option>
+            </select>
+            <button class="gradient-btn">
+                <i class="fa-solid fa-plus"></i>
+                Create Event
+            </button>
+        </div>
+        <section class="events-grid">
+            <article class="event-card">
+                <div class="event-image event-image-one">
+                    <span class="event-category">
+                        Workshop
+                    </span>
+                    <button class="heart-btn">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                </div>
+                <div class="event-card-content">
+                    <div class="event-card-date">
+                        <strong>22</strong>
+                        <span>AUG</span>
+                    </div>
+                    <div class="event-card-info">
+                        <h3>Web Development Workshop</h3>
+                        <p>
+                            Learn modern frontend development
+                            techniques and best practices.
+                        </p>
+                        <div class="event-meta">
+                            <span>
+                                <i class="fa-regular fa-clock"></i>
+                                04:00 PM
+                            </span>
+                            <span>
+                                <i class="fa-solid fa-location-dot"></i>
+                                KUBS
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="event-card-footer">
+                    <div class="participants">
+                        <div class="mini-avatar">U</div>
+                        <div class="mini-avatar">A</div>
+                        <div class="mini-avatar">S</div>
+                        <span>42 joined</span>
+                    </div>
+                    <button class="join-btn">
+                        Join Event
+                    </button>
+                </div>
+            </article>
+            <article class="event-card">
+
+                <div class="event-image event-image-two">
+
+                    <span class="event-category">
+                        Meetup
+                    </span>
+
+                    <button class="heart-btn">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                </div>
+                <div class="event-card-content">
+                    <div class="event-card-date purple-date">
+                        <strong>25</strong>
+                        <span>AUG</span>
+                    </div>
+                    <div class="event-card-info">
+                        <h3>Campus Tech Meetup</h3>
+                        <p>
+                            Meet students and developers interested
+                            in technology and innovation.
+                        </p>
+                        <div class="event-meta">
+                            <span>
+                                <i class="fa-regular fa-clock"></i>
+                                02:00 PM
+                            </span>
+                            <span>
+                                <i class="fa-solid fa-location-dot"></i>
+                                Hall 2
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="event-card-footer">
+                    <div class="participants">
+                        <div class="mini-avatar">A</div>
+                        <div class="mini-avatar">M</div>
+                        <div class="mini-avatar">K</div>
+                        <span>35 joined</span>
+                    </div>
+                    <button class="join-btn">
+                        Join Event
+                    </button>
+                </div>
+            </article>
+            <article class="event-card">
+                <div class="event-image event-image-three">
+                    <span class="event-category">
+                        Networking
+                    </span>
+                    <button class="heart-btn">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                </div>
+                <div class="event-card-content">
+                    <div class="event-card-date pink-date">
+                        <strong>28</strong>
+                        <span>AUG</span>
+                    </div>
+                    <div class="event-card-info">
+                        <h3>Student Networking Night</h3>
+                        <p>
+                            Connect with students, share ideas
+                            and build meaningful connections.
+                        </p>
+                        <div class="event-meta">
+                            <span>
+                                <i class="fa-regular fa-clock"></i>
+                                06:30 PM
+                            </span>
+                            <span>
+                                <i class="fa-solid fa-location-dot"></i>
+                                Auditorium
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="event-card-footer">
+                    <div class="participants">
+                        <div class="mini-avatar">R</div>
+                        <div class="mini-avatar">F</div>
+                        <div class="mini-avatar">H</div>
+                        <span>58 joined</span>
+                    </div>
+                    <button class="join-btn">
+                        Join Event
+                    </button>
+                </div>
+            </article>
+            <article class="event-card">
+                <div class="event-image event-image-four">
+                    <span class="event-category">
+                        Seminar
+                    </span>
+                    <button class="heart-btn">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                </div>
+                <div class="event-card-content">
+                    <div class="event-card-date">
+                        <strong>02</strong>
+                        <span>SEP</span>
+                    </div>
+                    <div class="event-card-info">
+                        <h3>AI & Future Technology</h3>
+                        <p>
+                            Explore the future of artificial intelligence
+                            and emerging technologies.
+                        </p>
+                        <div class="event-meta">
+                            <span>
+                                <i class="fa-regular fa-clock"></i>
+                                11:00 AM
+                            </span>
+                            <span>
+                                <i class="fa-solid fa-location-dot"></i>
+                                Main Hall
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="event-card-footer">
+                    <div class="participants">
+                        <div class="mini-avatar">N</div>
+                        <div class="mini-avatar">Z</div>
+                        <div class="mini-avatar">T</div>
+                        <span>72 joined</span>
+                    </div>
+                    <button class="join-btn">
+                        Join Event
+                    </button>
+                </div>
+            </article>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>
+            © 2026 CampusConnect.
+            <span>Connect • Learn • Grow</span>
+        </p>
+    </footer>
+</body>
+</html>

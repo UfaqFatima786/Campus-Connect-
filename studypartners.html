@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusConnect | Study Partners</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-glow glow-one"></div>
+    <div class="bg-glow glow-two"></div>
+    <header class="navbar">
+        <a href="dashboard.html" class="logo">
+            <span class="logo-icon">
+                <i class="fa-solid fa-graduation-cap"></i>
+            </span>
+            <span>Campus<span>Connect</span></span>
+        </a>
+        <nav class="nav-links">
+        <a href="dashboard.html">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+            </a>
+            <a href="posts.html">
+                <i class="fa-solid fa-users"></i>
+                Community
+            </a>
+            <a href="events.html">
+                <i class="fa-solid fa-calendar-days"></i>
+                Events
+            </a>
+            <a href="studypartners.html" class="active">
+                <i class="fa-solid fa-user-group"></i>
+                Study Partners
+            </a>
+            <a href="polls.html">
+                <i class="fa-solid fa-square-poll-vertical"></i>
+                Polls
+            </a>
+        </nav>
+        <div class="nav-actions">
+            <button class="icon-btn">
+                <i class="fa-regular fa-bell"></i>
+                <span class="notification-dot"></span>
+            </button>
+            <a href="profile.html" class="profile-mini">
+                <div class="avatar">UF</div>
+                <div class="profile-mini-text">
+                    <strong>Ufaq</strong>
+                    <small>Student</small>
+                </div>
+            </a>
+            <button class="menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+    <main class="study-container">
+        <div class="page-heading">
+            <span class="small-label">
+                <i class="fa-solid fa-user-group"></i>
+                STUDY PARTNER FINDER
+            </span>
+            <h1>Find Your Study Partner</h1>
+            <p>
+                Connect with students who share your subjects,
+                skills and learning goals.
+            </p>
+        </div>
+        <div class="study-toolbar">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text"
+                    placeholder="Search students or subjects...">
+            </div>
+            <select class="filter-select">
+                <option>All Subjects</option>
+                <option>Web Development</option>
+                <option>Database</option>
+                <option>JavaScript</option>
+                <option>Python</option>
+            </select>
+            <select class="filter-select">
+                <option>Experience Level</option>
+                <option>Beginner</option>
+                <option>Intermediate</option>
+                <option>Advanced</option>
+            </select>
+            <button class="gradient-btn">
+                <i class="fa-solid fa-user-plus"></i>
+                Add Profile
+            </button>
+        </div>
+                <section class="partners-grid">
+            <article class="partner-card">
+                <div class="partner-top">
+                    <div class="partner-avatar blue-avatar">
+                        A
+                    </div>
+                    <span class="availability available">
+                        <i class="fa-solid fa-circle"></i>
+                        Available
+                    </span>
+                </div>
+                <h3>Ahmed Khan</h3>
+                <p class="partner-role">
+                    Frontend Developer
+                </p>
+                <p class="partner-intro">
+                    Passionate about building modern websites
+                    and learning new frontend technologies.
+                </p>
+                <div class="partner-section">
+                    <span class="partner-label">
+                        SUBJECTS
+                    </span>
+                    <div class="partner-tags">
+                        <span>Web Development</span>
+                        <span>JavaScript</span>
+                    </div>
+                </div>
+                <div class="partner-section">
+                    <span class="partner-label">
+                        SKILLS
+                    </span>
+                    <div class="partner-tags purple-tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>GSAP</span>
+                    </div>
+                </div>
+                <div class="partner-footer">
+                    <span>
+                        <i class="fa-solid fa-chart-simple"></i>
+                        Intermediate
+                    </span>
+                    <button class="connect-btn">
+                        Connect
+                    </button>
+                </div>
+            </article>
+            <article class="partner-card">
+
+                <div class="partner-top">
+
+                    <div class="partner-avatar purple-avatar">
+                        S
+                    </div>
+
+                    <span class="availability available">
+                        <i class="fa-solid fa-circle"></i>
+                        Available
+                    </span>
+
+                </div>
+
+
+                <h3>Sarah Ahmed</h3>
+
+                <p class="partner-role">
+                    Computer Science Student
+                </p>
+
+
+                <p class="partner-intro">
+                    Interested in databases, programming and
+                    collaborative learning.
+                </p>
+
+
+                <div class="partner-section">
+
+                    <span class="partner-label">
+                        SUBJECTS
+                    </span>
+
+                    <div class="partner-tags">
+                        <span>Database</span>
+                        <span>Python</span>
+                    </div>
+
+                </div>
+
+
+                <div class="partner-section">
+                    <span class="partner-label">
+                        SKILLS
+                    </span>
+                    <div class="partner-tags purple-tags">
+                        <span>SQL</span>
+                        <span>Python</span>
+                        <span>Git</span>
+                    </div>
+                </div>
+                <div class="partner-footer">
+                    <span>
+                        <i class="fa-solid fa-chart-simple"></i>
+                        Advanced
+                    </span>
+                    <button class="connect-btn">
+                        Connect
+                    </button>
+                </div>
+            </article>
+            <article class="partner-card">
+
+                <div class="partner-top">
+
+                    <div class="partner-avatar pink-avatar">
+                        M
+                    </div>
+
+                    <span class="availability busy">
+                        <i class="fa-solid fa-circle"></i>
+                        Busy
+                    </span>
+
+                </div>
+                <h3>Mehak Fatima</h3>
+                <p class="partner-role">
+                    UI/UX Enthusiast
+                </p>
+                <p class="partner-intro">
+                    Love designing clean interfaces and
+                    exploring creative web experiences.
+                </p>
+                <div class="partner-section">
+                    <span class="partner-label">
+                        SUBJECTS
+                    </span>
+                    <div class="partner-tags">
+                        <span>UI/UX</span>
+                        <span>Design</span>
+                    </div>
+                </div>
+                <div class="partner-section">
+                    <span class="partner-label">
+                        SKILLS
+                    </span>
+                    <div class="partner-tags purple-tags">
+                        <span>Figma</span>
+                        <span>Canva</span>
+                        <span>CSS</span>
+                    </div>
+                </div>
+                <div class="partner-footer">
+                    <span>
+                        <i class="fa-solid fa-chart-simple"></i>
+                        Intermediate
+                    </span>
+                    <button class="connect-btn">
+                        Connect
+                    </button>
+                </div>
+            </article>
+            <article class="partner-card">
+                <div class="partner-top">
+                    <div class="partner-avatar blue-avatar">
+                        R
+                    </div>
+                    <span class="availability available">
+                        <i class="fa-solid fa-circle"></i>
+                        Available
+                    </span>
+                </div>
+                <h3>Rayan Ali</h3>
+                <p class="partner-role">
+                    Python Developer
+                </p>
+                <p class="partner-intro">
+                    Looking for students interested in Python,
+                    AI and problem solving.
+                </p>
+                <div class="partner-section">
+                    <span class="partner-label">
+                        SUBJECTS
+                    </span>
+                    <div class="partner-tags">
+                        <span>Python</span>
+                        <span>AI</span>
+                    </div>
+                </div>
+                <div class="partner-section">
+                    <span class="partner-label">
+                        SKILLS
+                    </span>
+                    <div class="partner-tags purple-tags">
+                        <span>Python</span>
+                        <span>AI</span>
+                        <span>ML</span>
+                    </div>
+                </div>
+                <div class="partner-footer">
+                    <span>
+                        <i class="fa-solid fa-chart-simple"></i>
+                        Advanced
+                    </span>
+                    <button class="connect-btn">
+                        Connect
+                    </button>
+                </div>
+            </article>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>
+            © 2026 CampusConnect.
+            <span>Connect • Learn • Grow</span>
+        </p>
+    </footer>
+
+</body>
+</html>

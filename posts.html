@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusConnect | Community Posts</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-glow glow-one"></div>
+    <div class="bg-glow glow-two"></div>
+    <header class="navbar">
+
+        <a href="dashboard.html" class="logo">
+            <span class="logo-icon">
+                <i class="fa-solid fa-graduation-cap"></i>
+            </span>
+
+            <span>Campus<span>Connect</span></span>
+        </a>
+
+        <nav class="nav-links">
+            <a href="dashboard.html">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+            </a>
+            <a href="posts.html" class="active">
+                <i class="fa-solid fa-users"></i>
+                Community
+            </a>
+            <a href="events.html">
+                <i class="fa-solid fa-calendar-days"></i>
+                Events
+            </a>
+            <a href="studypartners.html">
+                <i class="fa-solid fa-user-group"></i>
+                Study Partners
+            </a>
+            <a href="polls.html">
+                <i class="fa-solid fa-square-poll-vertical"></i>
+                Polls
+            </a>
+        </nav>
+        <div class="nav-actions">
+            <button class="icon-btn">
+                <i class="fa-regular fa-bell"></i>
+                <span class="notification-dot"></span>
+            </button>
+            <a href="profile.html" class="profile-mini">
+                <div class="avatar">UF</div>
+                <div class="profile-mini-text">
+                    <strong>Ufaq</strong>
+                    <small>Student</small>
+                </div>
+            </a>
+            <button class="menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+    <main class="posts-container">
+
+        <div class="page-heading">
+
+            <span class="small-label">
+                <i class="fa-solid fa-users"></i>
+                STUDENT COMMUNITY
+            </span>
+
+            <h1>Community Posts</h1>
+
+            <p>
+                Share ideas, ask questions and connect with
+                students across your campus.
+            </p>
+
+        </div>
+
+
+        <!-- TOOLBAR -->
+        <div class="posts-toolbar">
+
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input type="text"
+                    placeholder="Search community posts...">
+            </div>
+
+            <select class="filter-select">
+                <option>Latest Posts</option>
+                <option>Most Liked</option>
+                <option>Most Commented</option>
+            </select>
+
+            <button class="gradient-btn">
+                <i class="fa-solid fa-plus"></i>
+                Create Post
+            </button>
+
+        </div>
+
+
+        <!-- POSTS -->
+        <section class="posts-layout">
+
+            <div class="posts-feed">
+
+
+                <!-- POST 1 -->
+                <article class="post-card">
+
+                    <div class="post-header">
+
+                        <div class="post-user">
+
+                            <div class="post-avatar blue-avatar">
+                                S
+                            </div>
+
+                            <div>
+                                <h4>Sarah Ahmed</h4>
+
+                                <span>
+                                    <i class="fa-regular fa-clock"></i>
+                                    15 minutes ago
+                                </span>
+                            </div>
+
+                        </div>
+
+                        <button class="post-menu">
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </button>
+
+                    </div>
+
+
+                    <div class="post-content">
+
+                        <h2>
+                            Anyone preparing for the upcoming Hackathon? 🚀
+                        </h2>
+
+                        <p>
+                            I'm looking for students who are interested
+                            in frontend development and UI/UX.
+                            Let's build something amazing together!
+                        </p>
+
+                        <div class="post-tags">
+                            <span>#Hackathon</span>
+                            <span>#WebDevelopment</span>
+                            <span>#TeamWork</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="post-gradient-image">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+
+
+                    <div class="post-actions">
+
+                        <button class="post-action liked">
+                            <i class="fa-solid fa-heart"></i>
+                            24
+                        </button>
+
+                        <button class="post-action">
+                            <i class="fa-regular fa-comment"></i>
+                            8
+                        </button>
+
+                        <button class="post-action">
+                            <i class="fa-solid fa-share-nodes"></i>
+                            Share
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- POST 2 -->
+                <article class="post-card">
+
+                    <div class="post-header">
+
+                        <div class="post-user">
+
+                            <div class="post-avatar purple-avatar">
+                                A
+                            </div>
+
+                            <div>
+                                <h4>Ali Raza</h4>
+
+                                <span>
+                                    <i class="fa-regular fa-clock"></i>
+                                    1 hour ago
+                                </span>
+                            </div>
+
+                        </div>
+
+                        <button class="post-menu">
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </button>
+
+                    </div>
+
+
+                    <div class="post-content">
+
+                        <h2>
+                            Best resources for learning JavaScript?
+                        </h2>
+
+                        <p>
+                            Can anyone recommend some good resources
+                            for learning modern JavaScript and ES6?
+                            Preferably beginner friendly.
+                        </p>
+
+                        <div class="post-tags">
+                            <span>#JavaScript</span>
+                            <span>#Learning</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="post-actions">
+
+                        <button class="post-action">
+                            <i class="fa-regular fa-heart"></i>
+                            17
+                        </button>
+
+                        <button class="post-action">
+                            <i class="fa-regular fa-comment"></i>
+                            12
+                        </button>
+
+                        <button class="post-action">
+                            <i class="fa-solid fa-share-nodes"></i>
+                            Share
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- POST 3 -->
+                <article class="post-card">
+
+                    <div class="post-header">
+
+                        <div class="post-user">
+
+                            <div class="post-avatar pink-avatar">
+                                M
+                            </div>
+
+                            <div>
+                                <h4>Mehak Khan</h4>
+
+                                <span>
+                                    <i class="fa-regular fa-clock"></i>
+                                    3 hours ago
+                                </span>
+                            </div>
+
+                        </div>
+
+                        <button class="post-menu">
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </button>
+
+                    </div>
+
+
+                    <div class="post-content">
+
+                        <h2>
+                            Study group for Database Systems 📚
+                        </h2>
+
+                        <p>
+                            Looking for students who want to study
+                            Database Systems together this weekend.
+                        </p>
+
+                        <div class="post-tags">
+                            <span>#StudyGroup</span>
+                            <span>#Database</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="post-actions">
+
+                        <button class="post-action">
+                            <i class="fa-regular fa-heart"></i>
+                            31
+                        </button>
+
+                        <button class="post-action">
+                            <i class="fa-regular fa-comment"></i>
+                            14
+                        </button>
+
+                        <button class="post-action">
+                            <i class="fa-solid fa-share-nodes"></i>
+                            Share
+                        </button>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <!-- SIDEBAR -->
+            <aside class="posts-sidebar">
+
+                <div class="community-card">
+
+                    <span class="card-label">
+                        CAMPUS COMMUNITY
+                    </span>
+
+                    <h3>Join the conversation 💜</h3>
+
+                    <p>
+                        Share knowledge, ask questions and
+                        meet students with similar interests.
+                    </p>
+
+                    <div class="community-stats">
+
+                        <div>
+                            <strong>1.2K</strong>
+                            <span>Students</span>
+                        </div>
+
+                        <div>
+                            <strong>856</strong>
+                            <span>Posts</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="trending-card">
+
+                    <div class="card-header">
+                        <div>
+                            <span class="card-label pink-label">
+                                TRENDING
+                            </span>
+
+                            <h3>Popular Topics</h3>
+                        </div>
+                    </div>
+
+                    <div class="topic-list">
+
+                        <div class="topic">
+                            <span>#WebDevelopment</span>
+                            <small>124 posts</small>
+                        </div>
+
+                        <div class="topic">
+                            <span>#JavaScript</span>
+                            <small>98 posts</small>
+                        </div>
+
+                        <div class="topic">
+                            <span>#Hackathon</span>
+                            <small>76 posts</small>
+                        </div>
+
+                        <div class="topic">
+                            <span>#StudyGroups</span>
+                            <small>64 posts</small>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </aside>
+
+        </section>
+
+    </main>
+    <footer class="footer">
+        <p>
+            © 2026 CampusConnect.
+            <span>Connect • Learn • Grow</span>
+        </p>
+    </footer>
+
+</body>
+</html>

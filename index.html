@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusConnect | Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="bg-glow glow-one"></div>
+    <div class="bg-glow glow-two"></div>
+    <header class="navbar">
+
+        <a href="dashboard.html" class="logo">
+            <span class="logo-icon">
+                <i class="fa-solid fa-graduation-cap"></i>
+            </span>
+            <span>Campus<span>Connect</span></span>
+        </a>
+
+        <nav class="nav-links">
+            <a href="dashboard.html" class="active">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+            </a>
+
+            <a href="posts.html">
+                <i class="fa-solid fa-users"></i>
+                Community
+            </a>
+
+            <a href="events.html">
+                <i class="fa-solid fa-calendar-days"></i>
+                Events
+            </a>
+
+            <a href="#">
+                <i class="fa-solid fa-user-group"></i>
+                Study Partners
+            </a>
+
+            <a href="#">
+                <i class="fa-solid fa-square-poll-vertical"></i>
+                Polls
+            </a>
+        </nav>
+
+        <div class="nav-actions">
+
+            <button class="icon-btn">
+                <i class="fa-regular fa-bell"></i>
+                <span class="notification-dot"></span>
+            </button>
+
+            <a href="profile.html" class="profile-mini">
+                <div class="avatar">UF</div>
+                <div class="profile-mini-text">
+                    <strong>Ufaq</strong>
+                    <small>Student</small>
+                </div>
+            </a>
+
+            <button class="menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+        </div>
+
+    </header>
+    <main class="dashboard-container">
+        <section class="welcome-section">
+
+            <div class="welcome-content">
+
+                <span class="small-label">
+                    <i class="fa-solid fa-sparkles"></i>
+                    STUDENT COMMUNITY
+                </span>
+
+                <h1>
+                    Welcome back,
+                    <span>Ufaq! 👋</span>
+                </h1>
+
+                <p>
+                    Connect with your campus, discover events,
+                    share ideas and grow together.
+                </p>
+
+                <div class="quick-actions">
+
+                    <a href="posts.html" class="gradient-btn">
+                        <i class="fa-solid fa-plus"></i>
+                        Create Post
+                    </a>
+
+                    <a href="events.html" class="outline-btn">
+                        <i class="fa-solid fa-calendar-plus"></i>
+                        Create Event
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="welcome-visual">
+                <div class="floating-circle circle-one"></div>
+                <div class="floating-circle circle-two"></div>
+
+                <div class="hero-icon">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+            </div>
+        </section>
+        <section class="stats-grid">
+
+            <div class="stat-card blue-card">
+
+                <div class="stat-icon">
+                    <i class="fa-solid fa-file-lines"></i>
+                </div>
+
+                <div>
+                    <p>Total Posts</p>
+                    <h2>128</h2>
+                    <span class="stat-growth">
+                        <i class="fa-solid fa-arrow-trend-up"></i>
+                        12% this month
+                    </span>
+                </div>
+            </div>
+
+            <div class="stat-card purple-card">
+                <div class="stat-icon">
+                    <i class="fa-solid fa-calendar-days"></i>
+                </div>
+                <div>
+                    <p>Upcoming Events</p>
+                    <h2>24</h2>
+                    <span class="stat-growth">
+                        <i class="fa-solid fa-arrow-trend-up"></i>
+                        5 new events
+                    </span>
+                </div>
+            </div>
+            <div class="stat-card pink-card">
+                <div class="stat-icon">
+                    <i class="fa-solid fa-user-group"></i>
+                </div>
+                <div>
+                    <p>Study Partners</p>
+                    <h2>56</h2>
+                    <span class="stat-growth">
+                        <i class="fa-solid fa-arrow-trend-up"></i>
+                        8 new partners
+                    </span>
+                </div>
+            </div>
+
+            <div class="stat-card gradient-card">
+                <div class="stat-icon">
+                    <i class="fa-solid fa-square-poll-vertical"></i>
+                </div>
+                <div>
+                    <p>Active Polls</p>
+                    <h2>12</h2>
+                    <span class="stat-growth">
+                        <i class="fa-solid fa-bolt"></i>
+                        Vote now
+                    </span>
+                </div>
+            </div>
+        </section>
+        <section class="dashboard-grid">
+            <div class="dashboard-card events-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <span class="card-label">
+                            <i class="fa-solid fa-calendar"></i>
+                            EVENTS
+                        </span>
+
+                        <h3>Upcoming Events</h3>
+                    </div>
+
+                    <a href="events.html" class="view-link">
+                        View All
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+
+                <div class="event-list">
+
+                    <div class="event-item">
+
+                        <div class="event-date">
+                            <strong>22</strong>
+                            <span>AUG</span>
+                        </div>
+
+                        <div class="event-info">
+                            <h4>Web Development Workshop</h4>
+                            <p>
+                                <i class="fa-regular fa-clock"></i>
+                                04:00 PM
+                                &nbsp; • &nbsp;
+                                <i class="fa-solid fa-location-dot"></i>
+                                KUBS
+                            </p>
+                        </div>
+
+                        <button class="small-action">
+                            Join
+                        </button>
+
+                    </div>
+
+
+                    <div class="event-item">
+
+                        <div class="event-date purple-date">
+                            <strong>25</strong>
+                            <span>AUG</span>
+                        </div>
+
+                        <div class="event-info">
+                            <h4>Campus Tech Meetup</h4>
+                            <p>
+                                <i class="fa-regular fa-clock"></i>
+                                02:00 PM
+                                &nbsp; • &nbsp;
+                                <i class="fa-solid fa-location-dot"></i>
+                                Hall 2
+                            </p>
+                        </div>
+
+                        <button class="small-action">
+                            Join
+                        </button>
+
+                    </div>
+
+
+                    <div class="event-item">
+
+                        <div class="event-date pink-date">
+                            <strong>28</strong>
+                            <span>AUG</span>
+                        </div>
+
+                        <div class="event-info">
+                            <h4>Student Networking Night</h4>
+                            <p>
+                                <i class="fa-regular fa-clock"></i>
+                                06:30 PM
+                                &nbsp; • &nbsp;
+                                <i class="fa-solid fa-location-dot"></i>
+                                Auditorium
+                            </p>
+                        </div>
+
+                        <button class="small-action">
+                            Join
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="dashboard-card notification-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <span class="card-label pink-label">
+                            <i class="fa-regular fa-bell"></i>
+                            ACTIVITY
+                        </span>
+
+                        <h3>Notifications</h3>
+                    </div>
+
+                    <button class="mark-read">
+                        Mark all read
+                    </button>
+
+                </div>
+
+
+                <div class="notification-list">
+
+                    <div class="notification-item unread">
+
+                        <div class="notification-icon like-icon">
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+
+                        <div>
+                            <h4>Sarah liked your post</h4>
+                            <p>2 minutes ago</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="notification-item unread">
+
+                        <div class="notification-icon comment-icon">
+                            <i class="fa-solid fa-comment"></i>
+                        </div>
+
+                        <div>
+                            <h4>Ali commented on your post</h4>
+                            <p>15 minutes ago</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="notification-item">
+
+                        <div class="notification-icon event-icon">
+                            <i class="fa-solid fa-user-plus"></i>
+                        </div>
+
+                        <div>
+                            <h4>Ahmed joined your event</h4>
+                            <p>1 hour ago</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="notification-item">
+
+                        <div class="notification-icon announce-icon">
+                            <i class="fa-solid fa-bullhorn"></i>
+                        </div>
+
+                        <div>
+                            <h4>New campus announcement</h4>
+                            <p>3 hours ago</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+                <section class="announcement-card">
+
+            <div class="announcement-icon">
+                <i class="fa-solid fa-bullhorn"></i>
+            </div>
+
+            <div class="announcement-content">
+
+                <span>LATEST ANNOUNCEMENT</span>
+
+                <h3>CampusConnect Hackathon 2026 🚀</h3>
+
+                <p>
+                    Join students from across campus and showcase
+                    your skills in our upcoming hackathon.
+                </p>
+
+            </div>
+
+            <button class="announcement-btn">
+                Explore
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <footer class="footer">
+        <p>
+            © 2026 CampusConnect.
+            <span>Connect • Learn • Grow</span>
+        </p>
+    </footer>
+
+</body>
+</html>
