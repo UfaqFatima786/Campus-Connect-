@@ -7,12 +7,11 @@
     <title>CampusConnect | Community Posts</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="bg-glow glow-one"></div>
     <div class="bg-glow glow-two"></div>
@@ -65,6 +64,7 @@
             </button>
         </div>
     </header>
+
     <main class="posts-container">
 
         <div class="page-heading">
@@ -82,16 +82,12 @@
             </p>
 
         </div>
-
-
-        <!-- TOOLBAR -->
         <div class="posts-toolbar">
 
             <div class="search-box">
                 <i class="fa-solid fa-magnifying-glass"></i>
 
-                <input type="text"
-                    placeholder="Search community posts...">
+                <input type="text" placeholder="Search community posts...">
             </div>
 
             <select class="filter-select">
@@ -100,272 +96,181 @@
                 <option>Most Commented</option>
             </select>
 
-            <button class="gradient-btn">
+            <button class="gradient-btn" id="openPostModal">
                 <i class="fa-solid fa-plus"></i>
                 Create Post
             </button>
 
         </div>
-
-
-        <!-- POSTS -->
         <section class="posts-layout">
-
             <div class="posts-feed" id="postsContainer">
-
-
-                <!-- POST 1 -->
                 <article class="post-card">
-
                     <div class="post-header">
-
                         <div class="post-user">
-
                             <div class="post-avatar blue-avatar">
                                 S
                             </div>
-
                             <div>
                                 <h4>Sarah Ahmed</h4>
-
                                 <span>
                                     <i class="fa-regular fa-clock"></i>
                                     15 minutes ago
                                 </span>
                             </div>
-
                         </div>
-
                         <button class="post-menu">
                             <i class="fa-solid fa-ellipsis"></i>
                         </button>
-
                     </div>
-
-
                     <div class="post-content">
-
                         <h2>
                             Anyone preparing for the upcoming Hackathon? 🚀
                         </h2>
-
                         <p>
                             I'm looking for students who are interested
                             in frontend development and UI/UX.
                             Let's build something amazing together!
                         </p>
-
                         <div class="post-tags">
                             <span>#Hackathon</span>
                             <span>#WebDevelopment</span>
                             <span>#TeamWork</span>
                         </div>
-
                     </div>
-
-
                     <div class="post-gradient-image">
                         <i class="fa-solid fa-code"></i>
                     </div>
-
-
                     <div class="post-actions">
-
                         <button class="post-action liked">
                             <i class="fa-solid fa-heart"></i>
                             24
                         </button>
-
                         <button class="post-action">
                             <i class="fa-regular fa-comment"></i>
                             8
                         </button>
-
                         <button class="post-action">
                             <i class="fa-solid fa-share-nodes"></i>
                             Share
                         </button>
-
                     </div>
-
                 </article>
-
-
-                <!-- POST 2 -->
                 <article class="post-card">
-
                     <div class="post-header">
-
                         <div class="post-user">
-
                             <div class="post-avatar purple-avatar">
                                 A
                             </div>
-
                             <div>
                                 <h4>Ali Raza</h4>
-
                                 <span>
                                     <i class="fa-regular fa-clock"></i>
                                     1 hour ago
                                 </span>
                             </div>
-
                         </div>
-
                         <button class="post-menu">
                             <i class="fa-solid fa-ellipsis"></i>
                         </button>
-
                     </div>
-
-
                     <div class="post-content">
-
                         <h2>
                             Best resources for learning JavaScript?
                         </h2>
-
                         <p>
                             Can anyone recommend some good resources
                             for learning modern JavaScript and ES6?
                             Preferably beginner friendly.
                         </p>
-
                         <div class="post-tags">
                             <span>#JavaScript</span>
                             <span>#Learning</span>
                         </div>
-
                     </div>
-
-
                     <div class="post-actions">
-
                         <button class="post-action">
                             <i class="fa-regular fa-heart"></i>
                             17
                         </button>
-
                         <button class="post-action">
                             <i class="fa-regular fa-comment"></i>
                             12
                         </button>
-
                         <button class="post-action">
                             <i class="fa-solid fa-share-nodes"></i>
                             Share
                         </button>
-
                     </div>
-
                 </article>
-
-
-                <!-- POST 3 -->
                 <article class="post-card">
-
                     <div class="post-header">
-
                         <div class="post-user">
-
                             <div class="post-avatar pink-avatar">
                                 M
                             </div>
-
                             <div>
                                 <h4>Mehak Khan</h4>
-
                                 <span>
                                     <i class="fa-regular fa-clock"></i>
                                     3 hours ago
                                 </span>
                             </div>
-
                         </div>
-
                         <button class="post-menu">
                             <i class="fa-solid fa-ellipsis"></i>
                         </button>
-
                     </div>
-
-
                     <div class="post-content">
-
                         <h2>
                             Study group for Database Systems 📚
                         </h2>
-
                         <p>
                             Looking for students who want to study
                             Database Systems together this weekend.
                         </p>
-
                         <div class="post-tags">
                             <span>#StudyGroup</span>
                             <span>#Database</span>
                         </div>
-
                     </div>
-
-
                     <div class="post-actions">
-
                         <button class="post-action">
                             <i class="fa-regular fa-heart"></i>
                             31
                         </button>
-
                         <button class="post-action">
                             <i class="fa-regular fa-comment"></i>
                             14
                         </button>
-
                         <button class="post-action">
                             <i class="fa-solid fa-share-nodes"></i>
                             Share
                         </button>
-
                     </div>
-
                 </article>
-
             </div>
             <aside class="posts-sidebar">
-
                 <div class="community-card">
-
                     <span class="card-label">
                         CAMPUS COMMUNITY
                     </span>
-
                     <h3>Join the conversation 💜</h3>
-
                     <p>
                         Share knowledge, ask questions and
                         meet students with similar interests.
                     </p>
-
                     <div class="community-stats">
-
                         <div>
                             <strong>1.2K</strong>
                             <span>Students</span>
                         </div>
-
                         <div>
                             <strong>856</strong>
                             <span>Posts</span>
                         </div>
-
                     </div>
-
                 </div>
-
-
                 <div class="trending-card">
-
                     <div class="card-header">
                         <div>
                             <span class="card-label pink-label">
@@ -405,7 +310,35 @@
             </aside>
 
         </section>
-
+        <!-- CREATE POST MODAL -->
+        <div class="post-modal" id="postModal">
+            <div class="post-modal-content">
+                <div class="modal-header">
+                    <div>
+                        <span class="small-label">COMMUNITY</span>
+                        <h2>Create a Post</h2>
+                    </div>
+                    <button type="button" class="close-modal" id="closePostModal">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <form id="createPostForm">
+                    <div class="form-group">
+                        <label for="postTitle">Title</label>
+                        <input type="text" id="postTitle" placeholder="What's on your mind?" maxlength="150">
+                    </div>
+                    <div class="form-group">
+                        <label for="postContent">Content</label>
+                        <textarea id="postContent" rows="6" placeholder="Share something with your campus..."
+                            required></textarea>
+                    </div>
+                    <button type="submit" class="gradient-btn create-post-submit">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        Publish Post
+                    </button>
+                </form>
+            </div>
+        </div>
     </main>
     <footer class="footer">
         <p>
@@ -414,8 +347,9 @@
         </p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="supabase.js"></script>
-<script src="posts.js"></script>
+    <script src="supabase.js"></script>
+    <script src="posts.js"></script>
 
 </body>
+
 </html>

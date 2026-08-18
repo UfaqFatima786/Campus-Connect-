@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CampusConnect | Polls</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="polls.css">
+
 </head>
+
 <body>
     <div class="bg-glow glow-one"></div>
     <div class="bg-glow glow-two"></div>
@@ -84,13 +86,13 @@
                     My Polls
                 </button>
             </div>
-            <button class="gradient-btn">
+            <button class="gradient-btn" id="createPollBtn">
                 <i class="fa-solid fa-plus"></i>
                 Create Poll
             </button>
         </div>
-        <section class="polls-grid">
-            <article class="poll-card">
+        <section class="polls-grid" id="pollsContainer">
+            <!-- <article class="poll-card">
                 <div class="poll-header">
                     <div class="poll-user">
                         <div class="post-avatar blue-avatar">
@@ -115,32 +117,28 @@
                     </p>
                     <div class="poll-options">
                         <label class="poll-option">
-                            <input type="radio"
-                                name="poll1">
+                            <input type="radio" name="poll1">
                             <span class="radio-design"></span>
                             <span class="option-text">
                                 React
                             </span>
                         </label>
                         <label class="poll-option">
-                            <input type="radio"
-                                name="poll1">
+                            <input type="radio" name="poll1">
                             <span class="radio-design"></span>
                             <span class="option-text">
                                 Node.js
                             </span>
                         </label>
                         <label class="poll-option">
-                            <input type="radio"
-                                name="poll1">
+                            <input type="radio" name="poll1">
                             <span class="radio-design"></span>
                             <span class="option-text">
                                 Next.js
                             </span>
                         </label>
                         <label class="poll-option">
-                            <input type="radio"
-                                name="poll1">
+                            <input type="radio" name="poll1">
                             <span class="radio-design"></span>
                             <span class="option-text">
                                 Python
@@ -186,32 +184,28 @@
                     </p>
                     <div class="poll-options">
                         <label class="poll-option">
-                            <input type="radio"
-                                name="poll2">
+                            <input type="radio" name="poll2">
                             <span class="radio-design"></span>
                             <span class="option-text">
                                 Morning
                             </span>
                         </label>
                         <label class="poll-option">
-                            <input type="radio"
-                                name="poll2">
+                            <input type="radio" name="poll2">
                             <span class="radio-design"></span>
                             <span class="option-text">
                                 Afternoon
                             </span>
                         </label>
                         <label class="poll-option">
-                            <input type="radio"
-                                name="poll2">
+                            <input type="radio" name="poll2">
                             <span class="radio-design"></span>
                             <span class="option-text">
                                 Evening
                             </span>
                         </label>
                         <label class="poll-option">
-                            <input type="radio"
-                                name="poll2">
+                            <input type="radio" name="poll2">
                             <span class="radio-design"></span>
                             <span class="option-text">
                                 Late Night
@@ -328,32 +322,28 @@
                     </p>
                     <div class="poll-options">
                         <label class="poll-option">
-                            <input type="radio"
-                                name="poll4">
+                            <input type="radio" name="poll4">
                             <span class="radio-design"></span>
                             <span class="option-text">
                                 JavaScript
                             </span>
                         </label>
                         <label class="poll-option">
-                            <input type="radio"
-                                name="poll4">
+                            <input type="radio" name="poll4">
                             <span class="radio-design"></span>
                             <span class="option-text">
                                 Python
                             </span>
                         </label>
                         <label class="poll-option">
-                            <input type="radio"
-                                name="poll4">
+                            <input type="radio" name="poll4">
                             <span class="radio-design"></span>
                             <span class="option-text">
                                 Java
                             </span>
                         </label>
                         <label class="poll-option">
-                            <input type="radio"
-                                name="poll4">
+                            <input type="radio" name="poll4">
                             <span class="radio-design"></span>
                             <span class="option-text">
                                 C++
@@ -373,14 +363,142 @@
                         Ends in 2 days
                     </span>
                 </div>
-            </article>
+            </article> -->
         </section>
+
     </main>
+    <!-- =========================================
+     CREATE POLL MODAL
+========================================= -->
+
+    <div class="poll-modal" id="pollModal">
+
+        <div class="poll-modal-content">
+
+            <div class="modal-header">
+
+                <div>
+                    <span class="small-label">
+                        COMMUNITY VOICE
+                    </span>
+
+                    <h2>Create a Poll</h2>
+                </div>
+
+                <button type="button" class="close-modal" id="closePollModal">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+
+
+            <form id="createPollForm">
+
+                <!-- QUESTION -->
+
+                <div class="form-group">
+
+                    <label for="pollQuestion">
+                        Poll Question
+                    </label>
+
+                    <input type="text" id="pollQuestion" placeholder="Ask your campus a question..." required>
+
+                </div>
+
+
+                <!-- OPTION 1 -->
+
+                <div class="form-group">
+
+                    <label for="pollOption1">
+                        Option 1
+                    </label>
+
+                    <input type="text" id="pollOption1" placeholder="Enter first option" required>
+
+                </div>
+
+
+                <!-- OPTION 2 -->
+
+                <div class="form-group">
+
+                    <label for="pollOption2">
+                        Option 2
+                    </label>
+
+                    <input type="text" id="pollOption2" placeholder="Enter second option" required>
+
+                </div>
+
+
+                <!-- OPTION 3 -->
+
+                <div class="form-group">
+
+                    <label for="pollOption3">
+                        Option 3
+                    </label>
+
+                    <input type="text" id="pollOption3" placeholder="Enter third option">
+
+                </div>
+
+
+                <!-- OPTION 4 -->
+
+                <div class="form-group">
+
+                    <label for="pollOption4">
+                        Option 4
+                    </label>
+
+                    <input type="text" id="pollOption4" placeholder="Enter fourth option">
+
+                </div>
+
+
+                <!-- EXPIRY -->
+
+                <div class="form-group">
+
+                    <label for="pollExpiry">
+                        Expiry Date & Time
+                    </label>
+
+                    <input type="datetime-local" id="pollExpiry">
+
+                </div>
+
+
+                <!-- SUBMIT -->
+
+                <button type="submit" class="gradient-btn">
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Create Poll
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
     <footer class="footer">
         <p>
             © 2026 CampusConnect.
             <span>Connect • Learn • Grow</span>
         </p>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="supabase.js"></script>
+
+    <script src="polls.js"></script>
+
 </body>
+
 </html>

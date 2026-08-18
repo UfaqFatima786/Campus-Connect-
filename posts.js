@@ -89,3 +89,43 @@ async function loadPosts() {
 }
 
 loadPosts();
+
+const createPostForm = document.getElementById("createPostForm");
+
+if (createPostForm) {
+
+    createPostForm.addEventListener("submit", (e) => {
+
+        e.preventDefault();
+
+        const title = document
+            .getElementById("postTitle")
+            .value
+            .trim();
+
+        const content = document
+            .getElementById("postContent")
+            .value
+            .trim();
+
+
+        if (!content) {
+
+            alert("Please write something first.");
+
+            return;
+        }
+
+
+        console.log("Post Title:", title);
+        console.log("Post Content:", content);
+
+        alert("Post form is ready! 🎉");
+
+        createPostForm.reset();
+
+        postModal.classList.remove("active");
+
+    });
+
+}

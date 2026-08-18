@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CampusConnect | Study Partners</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="studypartner.css">
+
 </head>
+
 <body>
     <div class="bg-glow glow-one"></div>
     <div class="bg-glow glow-two"></div>
@@ -23,7 +25,7 @@
             <span>Campus<span>Connect</span></span>
         </a>
         <nav class="nav-links">
-        <a href="dashboard.html">
+            <a href="dashboard.html">
                 <i class="fa-solid fa-house"></i>
                 Dashboard
             </a>
@@ -76,8 +78,7 @@
         <div class="study-toolbar">
             <div class="search-box">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text"
-                    placeholder="Search students or subjects...">
+                <input type="text" placeholder="Search students or subjects...">
             </div>
             <select class="filter-select">
                 <option>All Subjects</option>
@@ -86,19 +87,32 @@
                 <option>JavaScript</option>
                 <option>Python</option>
             </select>
+
+            <select class="filter-select">
+                <option>All Skills</option>
+                <option>HTML</option>
+                <option>CSS</option>
+                <option>JavaScript</option>
+                <option>Python</option>
+                <option>SQL</option>
+                <option>Git</option>
+                <option>GSAP</option>
+                <option>Figma</option>
+            </select>
+
             <select class="filter-select">
                 <option>Experience Level</option>
                 <option>Beginner</option>
                 <option>Intermediate</option>
                 <option>Advanced</option>
             </select>
-            <button class="gradient-btn">
+            <button class="gradient-btn" id="addProfileBtn">
                 <i class="fa-solid fa-user-plus"></i>
                 Add Profile
             </button>
         </div>
-                <section class="partners-grid">
-            <article class="partner-card">
+        <section class="partners-grid" id="partnersContainer">
+            <!-- <article class="partner-card">
                 <div class="partner-top">
                     <div class="partner-avatar blue-avatar">
                         A
@@ -305,8 +319,139 @@
                         Connect
                     </button>
                 </div>
-            </article>
+            </article> -->
         </section>
+        <div class="profile-modal" id="profileModal">
+
+            <div class="profile-modal-content">
+
+                <button class="modal-close" id="closeProfileModal">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+                <div class="modal-heading">
+                    <span class="small-label">
+                        <i class="fa-solid fa-user-plus"></i>
+                        STUDY PARTNER PROFILE
+                    </span>
+
+                    <h2>Create Study Partner Profile</h2>
+
+                    <p>
+                        Add your details so other students can find you.
+                    </p>
+                </div>
+
+                <form id="studyPartnerForm">
+
+                    <div class="form-group">
+
+                        <label>Name</label>
+
+                        <input type="text" id="partnerName" placeholder="Enter your name" required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Profile Picture URL</label>
+
+                        <input type="url" id="partnerPicture" placeholder="https://example.com/profile.jpg">
+
+                        <small>
+                            Add an image URL for your profile picture.
+                        </small>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Subjects</label>
+
+                        <input type="text" id="partnerSubjects" placeholder="e.g. JavaScript, Database, Python"
+                            required>
+
+                        <small>
+                            Separate multiple subjects with commas.
+                        </small>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Skills</label>
+
+                        <input type="text" id="partnerSkills" placeholder="e.g. HTML, CSS, JavaScript" required>
+
+                        <small>
+                            Separate multiple skills with commas.
+                        </small>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Experience Level</label>
+
+                        <select id="partnerExperience" required>
+
+                            <option value="">
+                                Select experience level
+                            </option>
+
+                            <option value="Beginner">
+                                Beginner
+                            </option>
+
+                            <option value="Intermediate">
+                                Intermediate
+                            </option>
+
+                            <option value="Advanced">
+                                Advanced
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Availability</label>
+
+                        <input type="text" id="partnerAvailability" placeholder="e.g. Weekdays 6 PM - 9 PM" required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Short Introduction</label>
+
+                        <textarea id="partnerIntroduction" rows="4"
+                            placeholder="Tell other students a little about yourself..." required></textarea>
+
+                    </div>
+
+
+                    <button type="submit" class="gradient-btn profile-submit-btn">
+
+                        <i class="fa-solid fa-user-plus"></i>
+
+                        Create Profile
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
     </main>
     <footer class="footer">
         <p>
@@ -314,6 +459,12 @@
             <span>Connect • Learn • Grow</span>
         </p>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="supabase.js"></script>
+
+    <script src="studypartners.js"></script>
 
 </body>
+
 </html>
