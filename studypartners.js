@@ -44,9 +44,6 @@ async function loadStudyPartners() {
         return;
     }
 
-
-    // No partners
-
     if (!partners || partners.length === 0) {
 
         partnersContainer.innerHTML = `
@@ -66,18 +63,8 @@ async function loadStudyPartners() {
         return;
     }
 
-
-    // =========================================
-    // CREATE PARTNER CARDS
-    // =========================================
-
     partnersContainer.innerHTML = partners.map(
         partner => {
-
-
-            // -----------------------------
-            // SUBJECTS
-            // -----------------------------
 
             const subjectsHTML =
                 partner.subjects &&
@@ -97,11 +84,6 @@ async function loadStudyPartners() {
                         </span>
                     `;
 
-
-            // -----------------------------
-            // SKILLS
-            // -----------------------------
-
             const skillsHTML =
                 partner.skills &&
                     partner.skills.length
@@ -119,11 +101,6 @@ async function loadStudyPartners() {
                             No skills
                         </span>
                     `;
-
-
-            // -----------------------------
-            // AVATAR
-            // -----------------------------
             const avatarLetter =
                 partner.name
                     ? partner.name
@@ -131,11 +108,6 @@ async function loadStudyPartners() {
                         .charAt(0)
                         .toUpperCase()
                     : "S";
-
-
-            // -----------------------------
-            // AVAILABILITY CLASS
-            // -----------------------------
 
             let availabilityClass =
                 "available";
@@ -153,11 +125,6 @@ async function loadStudyPartners() {
                 availabilityClass = "busy";
 
             }
-
-
-            // -----------------------------
-            // CARD
-            // -----------------------------
 
             return `
 
@@ -385,11 +352,6 @@ function filterStudyPartners() {
 
 }
 
-
-// =========================================
-// SEARCH EVENTS
-// =========================================
-
 document.addEventListener(
     "input",
     function (e) {
@@ -406,12 +368,6 @@ document.addEventListener(
 
     }
 );
-
-
-
-// =========================================
-// FILTER EVENTS
-// =========================================
 
 document.addEventListener(
     "change",
@@ -430,11 +386,6 @@ document.addEventListener(
     }
 );
 
-
-
-// =========================================
-// CONNECT BUTTON
-// =========================================
 
 document.addEventListener(
     "click",
@@ -472,8 +423,6 @@ const studyPartnerForm =
     document.getElementById("studyPartnerForm");
 
 
-// OPEN MODAL
-
 if (addProfileBtn) {
 
     addProfileBtn.addEventListener(
@@ -486,9 +435,6 @@ if (addProfileBtn) {
     );
 
 }
-
-
-// CLOSE MODAL
 
 if (closeProfileModal) {
 
@@ -520,10 +466,6 @@ if (profileModal) {
 
 }
 
-// =========================================
-// CREATE STUDY PARTNER PROFILE
-// =========================================
-
 if (studyPartnerForm) {
 
     studyPartnerForm.addEventListener(
@@ -532,120 +474,159 @@ if (studyPartnerForm) {
 
             e.preventDefault();
 
+            try {
 
-            const name =
-                document.getElementById(
-                    "partnerName"
-                ).value.trim();
+                const {
+                    data: { user },
+                    error: userError
+                } = await supabaseClient.auth.getUser();
 
+                if (userError || !user) {
+                    alert("Please login first.");
+                    console.error("User Error:", userError);
+                    return;
+                }
 
-            const profilePicture =
-                document.getElementById(
-                    "partnerPicture"
-                ).value.trim();
+                console.log("Logged in user:", user.id);
+                const name =
+                    document.getElementById("partnerName")
+                        .value
+                        .trim();
 
+                const profilePicture =
+                    document.getElementById("partnerPicture")
+                        .value
+                        .trim();
 
-            const subjects =
-                document.getElementById(
-                    "partnerSubjects"
-                ).value
-                    .split(",")
-                    .map(item => item.trim())
-                    .filter(Boolean);
+                const subjects =
+                    document.getElementById("partnerSubjects")
+                        .value
+                        .split(",")
+                        .map(item => item.trim())
+                        .filter(Boolean);
 
+                const skills =
+                    document.getElementById("partnerSkills")
+                        .value
+                        .split(",")
+                        .map(item => item.trim())
+                        .filter(Boolean);
 
-            const skills =
-                document.getElementById(
-                    "partnerSkills"
-                ).value
-                    .split(",")
-                    .map(item => item.trim())
-                    .filter(Boolean);
+                const experience =
+                    document.getElementById("partnerExperience")
+                        .value;
 
+                const availability =
+                    document.getElementById("partnerAvailability")
+                        .value
+                        .trim();
 
-            const experience =
-                document.getElementById(
-                    "partnerExperience"
-                ).value;
+                const introduction =
+                    document.getElementById("partnerIntroduction")
+                        .value
+                        .trim();
 
+                const {
+                    data: existingProfile,
+                    error: existingError
+                } = await supabaseClient
+                    .from("study_partners")
+                    .select("id")
+                    .eq("user_id", user.id)
+                    .maybeSingle();
 
-            const availability =
-                document.getElementById(
-                    "partnerAvailability"
-                ).value.trim();
+                if (existingError) {
 
+                    console.error(
+                        "Check Profile Error:",
+                        existingError
+                    );
 
-            const introduction =
-                document.getElementById(
-                    "partnerIntroduction"
-                ).value.trim();
+                    alert(
+                        "Unable to check existing profile: " +
+                        existingError.message
+                    );
 
+                    return;
+                }
 
-            // INSERT INTO SUPABASE
+                if (existingProfile) {
 
-            const {
-                data,
-                error
-            } = await supabaseClient
-                .from("study_partners")
-                .insert([
+                    alert(
+                        "You already have a Study Partner profile."
+                    );
 
-                    {
-                        // user_id: null,
-                        name: name,
-                        profile_picture:
-                            profilePicture || null,
-                        subjects: subjects,
-                        skills: skills,
-                        experience_level:
-                            experience,
-                        availability:
-                            availability,
-                        introduction:
-                            introduction
-                    }
+                    return;
+                }
 
-                ])
-                .select();
-
-
-            if (error) {
-
-                console.error(
-                    "Create Study Partner Error:",
+                const {
+                    data,
                     error
+                } = await supabaseClient
+                    .from("study_partners")
+                    .insert([
+                        {
+                            user_id: user.id,
+                            name: name,
+                            profile_picture:
+                                profilePicture || null,
+                            subjects: subjects,
+                            skills: skills,
+                            experience_level:
+                                experience,
+                            availability:
+                                availability,
+                            introduction:
+                                introduction
+                        }
+                    ])
+                    .select();
+
+                if (error) {
+
+                    console.error(
+                        "Create Study Partner Error:",
+                        error
+                    );
+
+                    alert(
+                        "Unable to create profile: " +
+                        error.message
+                    );
+
+                    return;
+                }
+
+                console.log(
+                    "Study Partner Created:",
+                    data
                 );
 
                 alert(
-                    "Unable to create profile: " +
-                    error.message
+                    "Study partner profile created successfully!"
                 );
 
-                return;
+                studyPartnerForm.reset();
+
+                if (profileModal) {
+                    profileModal.classList.remove("show");
+                }
+
+                loadStudyPartners();
+
+            } catch (err) {
+
+                console.error(
+                    "Unexpected Error:",
+                    err
+                );
+
+                alert(
+                    "Something went wrong: " +
+                    err.message
+                );
 
             }
-
-
-            alert(
-                "Study partner profile created successfully!"
-            );
-
-
-            // RESET FORM
-
-            studyPartnerForm.reset();
-
-
-            // CLOSE MODAL
-
-            profileModal.classList.remove(
-                "show"
-            );
-
-
-            // RELOAD CARDS
-
-            loadStudyPartners();
 
         }
     );
