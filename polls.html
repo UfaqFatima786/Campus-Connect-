@@ -11,9 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="polls.css">
-
 </head>
-
 <body>
     <div class="bg-glow glow-one"></div>
     <div class="bg-glow glow-two"></div>
@@ -365,127 +363,63 @@
                 </div>
             </article> -->
         </section>
-
     </main>
-    <!-- =========================================
-     CREATE POLL MODAL
-========================================= -->
-
     <div class="poll-modal" id="pollModal">
-
         <div class="poll-modal-content">
-
             <div class="modal-header">
-
                 <div>
                     <span class="small-label">
                         COMMUNITY VOICE
                     </span>
-
                     <h2>Create a Poll</h2>
                 </div>
-
                 <button type="button" class="close-modal" id="closePollModal">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
-
             </div>
-
-
             <form id="createPollForm">
-
-                <!-- QUESTION -->
-
                 <div class="form-group">
-
                     <label for="pollQuestion">
                         Poll Question
                     </label>
-
                     <input type="text" id="pollQuestion" placeholder="Ask your campus a question..." required>
-
                 </div>
-
-
-                <!-- OPTION 1 -->
-
                 <div class="form-group">
-
                     <label for="pollOption1">
                         Option 1
                     </label>
-
                     <input type="text" id="pollOption1" placeholder="Enter first option" required>
-
                 </div>
-
-
-                <!-- OPTION 2 -->
-
                 <div class="form-group">
-
                     <label for="pollOption2">
                         Option 2
                     </label>
-
                     <input type="text" id="pollOption2" placeholder="Enter second option" required>
-
                 </div>
-
-
-                <!-- OPTION 3 -->
-
                 <div class="form-group">
-
                     <label for="pollOption3">
                         Option 3
                     </label>
-
                     <input type="text" id="pollOption3" placeholder="Enter third option">
-
                 </div>
-
-
-                <!-- OPTION 4 -->
-
                 <div class="form-group">
-
                     <label for="pollOption4">
                         Option 4
                     </label>
-
                     <input type="text" id="pollOption4" placeholder="Enter fourth option">
-
                 </div>
-
-
-                <!-- EXPIRY -->
-
                 <div class="form-group">
-
                     <label for="pollExpiry">
                         Expiry Date & Time
                     </label>
-
                     <input type="datetime-local" id="pollExpiry">
-
                 </div>
-
-
-                <!-- SUBMIT -->
-
                 <button type="submit" class="gradient-btn">
-
                     <i class="fa-solid fa-plus"></i>
-
                     Create Poll
-
                 </button>
-
             </form>
-
         </div>
-
     </div>
     <footer class="footer">
         <p>
@@ -494,11 +428,7 @@
         </p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
     <script src="supabase.js"></script>
-
     <script src="polls.js"></script>
-
 </body>
-
 </html>

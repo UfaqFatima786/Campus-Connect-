@@ -4,7 +4,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('images/js.jpg');
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLVxhA13yrn9tSfvR9Kdwa2L6iouQaduS4E-fIFbmvwA&s=10');
     background-size: cover;
     background-position: center;
 }
@@ -13,13 +13,13 @@ body {
     width: 600px;
     text-align: center;
     padding: 20px;
-    background: rgba(121, 19, 1, 0.801);
+    background: rgba(155, 152, 152, 0.61);
     border-radius: 10px;
 }
 
 .heading4 {
     font-size: 40px;
-    color: #fabebe;
+    color: #353434;
     margin-bottom: 20px;
 }
 
