@@ -4,12 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CampusConnect | Community Posts</title>
+    <title>CampusConnect | Posts</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="posts.css">
 </head>
 
 <body>
@@ -52,7 +53,7 @@
                 <i class="fa-regular fa-bell"></i>
                 <span class="notification-dot"></span>
             </button>
-             <a href="profile.html" class="profile-mini">
+            <a href="profile.html" class="profile-mini">
                 <div class="avatar" id="userAvatar"></div>
                 <div class="profile-mini-text">
                     <strong id="navUserName"></strong>
@@ -310,33 +311,55 @@
             </aside>
 
         </section>
-        <!-- CREATE POST MODAL -->
         <div class="post-modal" id="postModal">
             <div class="post-modal-content">
+
                 <div class="modal-header">
                     <div>
                         <span class="small-label">COMMUNITY</span>
                         <h2>Create a Post</h2>
+                        <p>Share something with your campus community.</p>
                     </div>
+
                     <button type="button" class="close-modal" id="closePostModal">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                 </div>
+
                 <form id="createPostForm">
+
                     <div class="form-group">
-                        <label for="postTitle">Title</label>
-                        <input type="text" id="postTitle" placeholder="What's on your mind?" maxlength="150">
+                        <label for="postTitle">
+                            Post Title
+                        </label>
+
+                        <input type="text" id="postTitle" placeholder="Give your post a title..." maxlength="150"
+                            required>
                     </div>
+
                     <div class="form-group">
-                        <label for="postContent">Content</label>
-                        <textarea id="postContent" rows="6" placeholder="Share something with your campus..."
-                            required></textarea>
+                        <label for="postContent">
+                            What's on your mind?
+                        </label>
+
+                        <textarea id="postContent" rows="6" placeholder="Share something with your campus community..."
+                            maxlength="1000" required></textarea>
                     </div>
+
+                    <div class="post-form-info">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <span>
+                            Your post will be visible to the CampusConnect community.
+                        </span>
+                    </div>
+
                     <button type="submit" class="gradient-btn create-post-submit">
                         <i class="fa-solid fa-paper-plane"></i>
                         Publish Post
                     </button>
+
                 </form>
+
             </div>
         </div>
     </main>
@@ -349,7 +372,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="supabase.js"></script>
     <script src="posts.js"></script>
-        <script src="dashboard.js"></script>
+    <script src="dashboard.js"></script>
 
 </body>
 

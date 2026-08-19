@@ -240,49 +240,72 @@ document.addEventListener(
 );
 loadPolls();
 
-const createPollBtn =
-    document.getElementById("createPollBtn");
+// const createPollBtn =
+//     document.getElementById("createPollBtn");
 
-const pollModal =
-    document.getElementById("pollModal");
+// const pollModal =
+//     document.getElementById("pollModal");
 
-const closePollModal =
-    document.getElementById("closePollModal");
+// const closePollModal =
+//     document.getElementById("closePollModal");
 
-const createPollForm =
-    document.getElementById("createPollForm");
-if (createPollBtn) {
-    createPollBtn.addEventListener(
-        "click",
-        function () {
-            pollModal.classList.add("show");
-        }
-    );
+// const createPollForm =
+//     document.getElementById("createPollForm");
+// if (createPollBtn) {
+//     createPollBtn.addEventListener(
+//         "click",
+//         function () {
+//             pollModal.classList.add("show");
+//         }
+//     );
 
+// }
+
+// if (closePollModal) {
+//     closePollModal.addEventListener(
+//         "click",
+//         function () {
+//             pollModal.classList.remove("show");
+
+//         }
+//     );
+// }
+
+// if (pollModal) {
+//     pollModal.addEventListener(
+//         "click",
+//         function (e) {
+//             if (e.target === pollModal) {
+//                 pollModal.classList.remove("show");
+
+//             }
+
+//         }
+//     );
+
+// }
+const postModal = document.getElementById("postModal");
+const openPostModal = document.getElementById("openPostModal");
+const closePostModal = document.getElementById("closePostModal");
+
+if (openPostModal) {
+    openPostModal.addEventListener("click", () => {
+        postModal.classList.add("active");
+    });
 }
 
-if (closePollModal) {
-    closePollModal.addEventListener(
-        "click",
-        function () {
-            pollModal.classList.remove("show");
-
-        }
-    );
+if (closePostModal) {
+    closePostModal.addEventListener("click", () => {
+        postModal.classList.remove("active");
+    });
 }
 
-if (pollModal) {
-    pollModal.addEventListener(
-        "click",
-        function (e) {
-            if (e.target === pollModal) {
-                pollModal.classList.remove("show");
-
-            }
-
+if (postModal) {
+    postModal.addEventListener("click", (e) => {
+        if (e.target === postModal) {
+            postModal.classList.remove("active");
         }
-    );
-
+    });
 }
 
 if (createPollForm) {
@@ -392,3 +415,4 @@ if (createPollForm) {
     );
 
 }
+

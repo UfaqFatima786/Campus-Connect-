@@ -34,11 +34,6 @@
     --radius: 22px;
 }
 
-
-/* =========================================
-   BODY
-========================================= */
-
 body {
 
     font-family: "Inter", sans-serif;
@@ -84,11 +79,6 @@ select {
     font-family: inherit;
 }
 
-
-/* =========================================
-   BACKGROUND GLOW
-========================================= */
-
 .bg-glow {
 
     position: fixed;
@@ -122,12 +112,6 @@ select {
     right: -150px;
     bottom: 100px;
 }
-
-
-/* =========================================
-   NAVBAR
-========================================= */
-
 .navbar {
 
     width: 100%;
@@ -156,10 +140,6 @@ select {
 
     z-index: 1000;
 }
-
-
-/* LOGO */
-
 .logo {
 
     display: flex;
@@ -202,9 +182,6 @@ select {
     box-shadow:
         0 8px 25px rgba(139, 92, 246, .35);
 }
-
-
-/* NAV LINKS */
 
 .nav-links {
 
@@ -262,9 +239,6 @@ select {
 
     font-size: 14px;
 }
-
-
-/* NAV ACTIONS */
 
 .nav-actions {
 
@@ -324,9 +298,6 @@ select {
     box-shadow: 0 0 10px #ec4899;
 }
 
-
-/* MINI PROFILE */
-
 .profile-mini {
 
     display: flex;
@@ -382,11 +353,6 @@ select {
     display: none;
 }
 
-
-/* =========================================
-   COMMON CONTAINERS
-========================================= */
-
 .dashboard-container,
 .profile-container,
 .events-container {
@@ -397,11 +363,6 @@ select {
 
     padding: 50px 0;
 }
-
-
-/* =========================================
-   WELCOME
-========================================= */
 
 .welcome-section {
 
@@ -501,10 +462,6 @@ select {
 
     font-size: 15px;
 }
-
-
-/* BUTTONS */
-
 .quick-actions {
 
     display: flex;
@@ -577,10 +534,6 @@ select {
 
     background: rgba(139, 92, 246, .1);
 }
-
-
-/* WELCOME VISUAL */
-
 .welcome-visual {
 
     width: 300px;
@@ -634,11 +587,6 @@ select {
     width: 290px;
     height: 290px;
 }
-
-
-/* =========================================
-   STATISTICS
-========================================= */
 
 .stats-grid {
 
@@ -730,11 +678,6 @@ select {
     font-weight: 600;
 }
 
-
-/* =========================================
-   DASHBOARD CONTENT
-========================================= */
-
 .dashboard-grid {
 
     display: grid;
@@ -819,11 +762,6 @@ select {
 
     cursor: pointer;
 }
-
-
-/* =========================================
-   EVENT LIST
-========================================= */
 
 .event-list {
 
@@ -969,12 +907,6 @@ select {
 
     font-weight: 700;
 }
-
-
-/* =========================================
-   NOTIFICATIONS
-========================================= */
-
 .notification-list {
 
     display: flex;
@@ -1079,12 +1011,6 @@ select {
 
     top: 19px;
 }
-
-
-/* =========================================
-   ANNOUNCEMENT
-========================================= */
-
 .announcement-card {
 
     margin-top: 22px;
@@ -1176,11 +1102,6 @@ select {
     font-weight: 700;
 }
 
-
-/* =========================================
-   PAGE HEADING
-========================================= */
-
 .page-heading {
 
     margin-bottom: 35px;
@@ -1205,11 +1126,6 @@ select {
 
     line-height: 1.7;
 }
-
-
-/* =========================================
-   PROFILE
-========================================= */
 
 .profile-layout {
 

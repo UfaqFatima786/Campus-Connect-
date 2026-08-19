@@ -56,8 +56,8 @@ async function loadPosts() {
 
                     <span>
                         ${post.created_at
-                            ? new Date(post.created_at).toLocaleDateString()
-                            : ""}
+            ? new Date(post.created_at).toLocaleDateString()
+            : ""}
                     </span>
                 </div>
 
@@ -94,7 +94,7 @@ const createPostForm = document.getElementById("createPostForm");
 
 if (createPostForm) {
 
-    createPostForm.addEventListener("submit", (e) => {
+    createPostForm.addEventListener("submit", async function (e) {
 
         e.preventDefault();
 
@@ -108,7 +108,6 @@ if (createPostForm) {
             .value
             .trim();
 
-
         if (!content) {
 
             alert("Please write something first.");
@@ -116,15 +115,118 @@ if (createPostForm) {
             return;
         }
 
+        // Get logged-in user
+        const {
+            data: { user },
+            error: userError
+        } = await supabaseClient.auth.getUser();
 
-        console.log("Post Title:", title);
-        console.log("Post Content:", content);
+        if (userError || !user) {
 
-        alert("Post form is ready! 🎉");
+            alert("Please login first to create a post.");
+
+            return;
+        }
+
+        const submitButton =
+            createPostForm.querySelector(".create-post-submit");
+
+        submitButton.disabled = true;
+
+        submitButton.innerHTML = `
+            <i class="fa-solid fa-spinner fa-spin"></i>
+            Publishing...
+        `;
+
+        // Insert post into Supabase
+        const { data, error } = await supabaseClient
+            .from("posts")
+            .insert({
+                title: title || "Campus Post",
+                content: content,
+                user_id: user.id
+            })
+            .select()
+            .single();
+
+        if (error) {
+
+            console.error("Create Post Error:", error);
+
+            alert(
+                "Post could not be published.\n\n" +
+                error.message
+            );
+
+            submitButton.disabled = false;
+
+            submitButton.innerHTML = `
+                <i class="fa-solid fa-paper-plane"></i>
+                Publish Post
+            `;
+
+            return;
+        }
+
+        console.log("Post Created:", data);
+
+        alert("Post published successfully! 🎉");
 
         createPostForm.reset();
 
         postModal.classList.remove("active");
+
+        submitButton.disabled = false;
+
+        submitButton.innerHTML = `
+            <i class="fa-solid fa-paper-plane"></i>
+            Publish Post
+        `;
+
+        // Refresh posts
+        loadPosts();
+
+    });
+
+}
+const postModal = document.getElementById("postModal");
+
+const openPostModal = document.getElementById("openPostModal");
+
+const closePostModal = document.getElementById("closePostModal");
+
+
+if (openPostModal) {
+
+    openPostModal.addEventListener("click", () => {
+
+        postModal.classList.add("active");
+
+    });
+
+}
+
+
+if (closePostModal) {
+
+    closePostModal.addEventListener("click", () => {
+
+        postModal.classList.remove("active");
+
+    });
+
+}
+
+
+if (postModal) {
+
+    postModal.addEventListener("click", (e) => {
+
+        if (e.target === postModal) {
+
+            postModal.classList.remove("active");
+
+        }
 
     });
 
