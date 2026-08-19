@@ -9,7 +9,10 @@ async function loadEvents() {
     `;
     const { data, error } = await supabaseClient
         .from("events")
-        .select("*")
+        .select(`
+        *,
+        event_registrations(count)
+    `)
         .order("event_date", { ascending: true });
     if (error) {
         console.error("Error loading events:", error);
@@ -34,6 +37,8 @@ async function loadEvents() {
         return;
     }
     eventsContainer.innerHTML = data.map(event => {
+        const joinedCount =
+            event.event_registrations?.[0]?.count || 0;
         let day = "";
         let month = "";
         if (event.event_date) {
@@ -86,19 +91,22 @@ async function loadEvents() {
                 <div class="event-card-footer">
                     <div class="participants">
                         <div class="mini-avatar">
-                            U
+                             U
                         </div>
                         <div class="mini-avatar">
-                            A
+                             A
                         </div>
                         <div class="mini-avatar">
-                            S
+                             S
                         </div>
-                        <span>
-                            0 joined
-                        </span>
+                       <span>
+                              ${joinedCount} joined
+                       </span>
                     </div>
-                    <button class="join-btn">
+                    <button 
+                          class="join-btn"
+                        data-event-id="${event.id}"
+                        >
                         Join Event
                     </button>
                 </div>
@@ -243,3 +251,58 @@ if (createEventForm) {
 
     });
 }
+document.addEventListener("click", async function (e) {
+
+    const joinButton = e.target.closest(".join-btn");
+
+    if (!joinButton) return;
+
+    const eventId = joinButton.dataset.eventId;
+
+    if (!eventId) {
+        console.error("Event ID missing.");
+        return;
+    }
+
+    const {
+        data: { user },
+        error: userError
+    } = await supabaseClient.auth.getUser();
+
+    if (userError || !user) {
+        alert("Please login first to join this event.");
+        return;
+    }
+
+    joinButton.disabled = true;
+    joinButton.textContent = "Joining...";
+
+    const { error } = await supabaseClient
+        .from("event_registrations")
+        .insert({
+            event_id: eventId,
+            user_id: user.id
+        });
+
+    if (error) {
+
+        console.error("Event Registration Error:", error);
+
+        joinButton.disabled = false;
+        joinButton.textContent = "Join Event";
+
+        if (error.code === "23505") {
+            alert("You have already joined this event.");
+        } else {
+            alert("Unable to join event.\n\n" + error.message);
+        }
+
+        return;
+    }
+
+    alert("You joined the event successfully! 🎉");
+
+    joinButton.textContent = "Joined ✓";
+    joinButton.disabled = true;
+
+});

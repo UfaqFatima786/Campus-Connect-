@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CampusConnect | Events</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="events.css">
+    <link rel="stylesheet" href="events.css">
 
 </head>
+
 <body>
     <div class="bg-glow glow-one"></div>
     <div class="bg-glow glow-two"></div>
@@ -52,9 +52,9 @@
                 <i class="fa-regular fa-bell"></i>
             </button>
             <a href="profile.html" class="profile-mini">
-                <div class="avatar">UF</div>
+                <div class="avatar" id="userAvatar"></div>
                 <div class="profile-mini-text">
-                    <strong>Ufaq</strong>
+                    <strong id="navUserName"></strong>
                     <small>Student</small>
                 </div>
             </a>
@@ -78,9 +78,7 @@
         <div class="event-toolbar">
             <div class="search-box">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input
-                    type="text"
-                    placeholder="Search events...">
+                <input type="text" placeholder="Search events...">
             </div>
             <select class="filter-select">
                 <option>All Events</option>
@@ -94,371 +92,162 @@
             </button>
         </div>
         <section class="events-grid" id="eventsContainer">
-            <!-- <article class="event-card">
-                <div class="event-image event-image-one">
-                    <span class="event-category">
-                        Workshop
-                    </span>
-                    <button class="heart-btn">
-                        <i class="fa-regular fa-heart"></i>
-                    </button>
-                </div>
-                <div class="event-card-content">
-                    <div class="event-card-date">
-                        <strong>22</strong>
-                        <span>AUG</span>
-                    </div>
-                    <div class="event-card-info">
-                        <h3>Web Development Workshop</h3>
-                        <p>
-                            Learn modern frontend development
-                            techniques and best practices.
-                        </p>
-                        <div class="event-meta">
-                            <span>
-                                <i class="fa-regular fa-clock"></i>
-                                04:00 PM
-                            </span>
-                            <span>
-                                <i class="fa-solid fa-location-dot"></i>
-                                KUBS
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="event-card-footer">
-                    <div class="participants">
-                        <div class="mini-avatar">U</div>
-                        <div class="mini-avatar">A</div>
-                        <div class="mini-avatar">S</div>
-                        <span>42 joined</span>
-                    </div>
-                    <button class="join-btn">
-                        Join Event
-                    </button>
-                </div>
-            </article>
-            <article class="event-card">
 
-                <div class="event-image event-image-two">
-
-                    <span class="event-category">
-                        Meetup
-                    </span>
-
-                    <button class="heart-btn">
-                        <i class="fa-regular fa-heart"></i>
-                    </button>
-                </div>
-                <div class="event-card-content">
-                    <div class="event-card-date purple-date">
-                        <strong>25</strong>
-                        <span>AUG</span>
-                    </div>
-                    <div class="event-card-info">
-                        <h3>Campus Tech Meetup</h3>
-                        <p>
-                            Meet students and developers interested
-                            in technology and innovation.
-                        </p>
-                        <div class="event-meta">
-                            <span>
-                                <i class="fa-regular fa-clock"></i>
-                                02:00 PM
-                            </span>
-                            <span>
-                                <i class="fa-solid fa-location-dot"></i>
-                                Hall 2
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="event-card-footer">
-                    <div class="participants">
-                        <div class="mini-avatar">A</div>
-                        <div class="mini-avatar">M</div>
-                        <div class="mini-avatar">K</div>
-                        <span>35 joined</span>
-                    </div>
-                    <button class="join-btn">
-                        Join Event
-                    </button>
-                </div>
-            </article>
-            <article class="event-card">
-                <div class="event-image event-image-three">
-                    <span class="event-category">
-                        Networking
-                    </span>
-                    <button class="heart-btn">
-                        <i class="fa-regular fa-heart"></i>
-                    </button>
-                </div>
-                <div class="event-card-content">
-                    <div class="event-card-date pink-date">
-                        <strong>28</strong>
-                        <span>AUG</span>
-                    </div>
-                    <div class="event-card-info">
-                        <h3>Student Networking Night</h3>
-                        <p>
-                            Connect with students, share ideas
-                            and build meaningful connections.
-                        </p>
-                        <div class="event-meta">
-                            <span>
-                                <i class="fa-regular fa-clock"></i>
-                                06:30 PM
-                            </span>
-                            <span>
-                                <i class="fa-solid fa-location-dot"></i>
-                                Auditorium
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="event-card-footer">
-                    <div class="participants">
-                        <div class="mini-avatar">R</div>
-                        <div class="mini-avatar">F</div>
-                        <div class="mini-avatar">H</div>
-                        <span>58 joined</span>
-                    </div>
-                    <button class="join-btn">
-                        Join Event
-                    </button>
-                </div>
-            </article>
-            <article class="event-card">
-                <div class="event-image event-image-four">
-                    <span class="event-category">
-                        Seminar
-                    </span>
-                    <button class="heart-btn">
-                        <i class="fa-regular fa-heart"></i>
-                    </button>
-                </div>
-                <div class="event-card-content">
-                    <div class="event-card-date">
-                        <strong>02</strong>
-                        <span>SEP</span>
-                    </div>
-                    <div class="event-card-info">
-                        <h3>AI & Future Technology</h3>
-                        <p>
-                            Explore the future of artificial intelligence
-                            and emerging technologies.
-                        </p>
-                        <div class="event-meta">
-                            <span>
-                                <i class="fa-regular fa-clock"></i>
-                                11:00 AM
-                            </span>
-                            <span>
-                                <i class="fa-solid fa-location-dot"></i>
-                                Main Hall
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="event-card-footer">
-                    <div class="participants">
-                        <div class="mini-avatar">N</div>
-                        <div class="mini-avatar">Z</div>
-                        <div class="mini-avatar">T</div>
-                        <span>72 joined</span>
-                    </div>
-                    <button class="join-btn">
-                        Join Event
-                    </button>
-                </div>
-            </article>
-        </section> -->
     </main>
-    <!-- CREATE EVENT MODAL -->
 
-<div class="event-modal" id="eventModal">
+    <div class="event-modal" id="eventModal">
 
-    <div class="event-modal-content">
+        <div class="event-modal-content">
 
-        <button class="close-modal" id="closeEventModal">
-            <i class="fa-solid fa-xmark"></i>
-        </button>
+            <button class="close-modal" id="closeEventModal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
 
-        <div class="modal-heading">
+            <div class="modal-heading">
 
-            <span>
-                <i class="fa-solid fa-calendar-plus"></i>
-            </span>
+                <span>
+                    <i class="fa-solid fa-calendar-plus"></i>
+                </span>
 
-            <div>
-                <h2>Create New Event</h2>
-                <p>Share an exciting event with your campus.</p>
+                <div>
+                    <h2>Create New Event</h2>
+                    <p>Share an exciting event with your campus.</p>
+                </div>
+
             </div>
+
+
+            <form id="createEventForm">
+
+                <div class="form-group">
+
+                    <label for="eventTitle">
+                        Event Title
+                    </label>
+
+                    <input type="text" id="eventTitle" placeholder="Enter event title" required>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="eventCategory">
+                            Category
+                        </label>
+
+                        <select id="eventCategory" required>
+
+                            <option value="">
+                                Select category
+                            </option>
+
+                            <option value="Workshop">
+                                Workshop
+                            </option>
+
+                            <option value="Meetup">
+                                Meetup
+                            </option>
+
+                            <option value="Seminar">
+                                Seminar
+                            </option>
+
+                            <option value="Networking">
+                                Networking
+                            </option>
+
+                            <option value="Sports">
+                                Sports
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="eventLocation">
+                            Location
+                        </label>
+
+                        <input type="text" id="eventLocation" placeholder="e.g. Main Hall" required>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="eventDate">
+                            Date
+                        </label>
+
+                        <input type="date" id="eventDate" required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="eventTime">
+                            Time
+                        </label>
+
+                        <input type="time" id="eventTime" required>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="eventDescription">
+                        Description
+                    </label>
+
+                    <textarea id="eventDescription" rows="4" placeholder="Tell students about this event..."
+                        required></textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="eventImage">
+                        Event Image
+                    </label>
+
+                    <input type="file" id="eventImage" accept="image/*">
+
+                </div>
+
+
+                <button type="submit" class="gradient-btn modal-submit-btn">
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Create Event
+
+                </button>
+
+            </form>
 
         </div>
 
-
-        <form id="createEventForm">
-
-            <div class="form-group">
-
-                <label for="eventTitle">
-                    Event Title
-                </label>
-
-                <input
-                    type="text"
-                    id="eventTitle"
-                    placeholder="Enter event title"
-                    required
-                >
-
-            </div>
-
-
-            <div class="form-row">
-
-                <div class="form-group">
-
-                    <label for="eventCategory">
-                        Category
-                    </label>
-
-                    <select id="eventCategory" required>
-
-                        <option value="">
-                            Select category
-                        </option>
-
-                        <option value="Workshop">
-                            Workshop
-                        </option>
-
-                        <option value="Meetup">
-                            Meetup
-                        </option>
-
-                        <option value="Seminar">
-                            Seminar
-                        </option>
-
-                        <option value="Networking">
-                            Networking
-                        </option>
-
-                        <option value="Sports">
-                            Sports
-                        </option>
-
-                        <option value="Other">
-                            Other
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="eventLocation">
-                        Location
-                    </label>
-
-                    <input
-                        type="text"
-                        id="eventLocation"
-                        placeholder="e.g. Main Hall"
-                        required
-                    >
-
-                </div>
-
-            </div>
-
-
-            <div class="form-row">
-
-                <div class="form-group">
-
-                    <label for="eventDate">
-                        Date
-                    </label>
-
-                    <input
-                        type="date"
-                        id="eventDate"
-                        required
-                    >
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="eventTime">
-                        Time
-                    </label>
-
-                    <input
-                        type="time"
-                        id="eventTime"
-                        required
-                    >
-
-                </div>
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label for="eventDescription">
-                    Description
-                </label>
-
-                <textarea
-                    id="eventDescription"
-                    rows="4"
-                    placeholder="Tell students about this event..."
-                    required
-                ></textarea>
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label for="eventImage">
-                    Event Image
-                </label>
-
-                <input
-                    type="file"
-                    id="eventImage"
-                    accept="image/*"
-                >
-
-            </div>
-
-
-            <button
-                type="submit"
-                class="gradient-btn modal-submit-btn"
-            >
-
-                <i class="fa-solid fa-plus"></i>
-
-                Create Event
-
-            </button>
-
-        </form>
-
     </div>
-
-</div>
     <footer class="footer">
         <p>
             © 2026 CampusConnect.
@@ -466,8 +255,9 @@
         </p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src=supabase.js></script>
-        <script src=events.js></script>
-
+    <script src="supabase.js"></script>
+    <script src="events.js"></script>
+    <script src="dashboard.js"></script>
 </body>
+
 </html>

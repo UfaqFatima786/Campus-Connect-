@@ -209,7 +209,6 @@ document.addEventListener(
                 poll_id: pollId,
                 option_id: optionId,
                 user_id: user.id
-
             });
 
         if (voteError) {
