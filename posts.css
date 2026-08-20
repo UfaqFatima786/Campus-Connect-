@@ -307,11 +307,6 @@
     flex-shrink: 0;
 }
 
-
-/* ================================
-   PUBLISH BUTTON
-================================ */
-
 .post-modal .create-post-submit {
     width: 100%;
     min-height: 52px;
@@ -367,11 +362,6 @@
     transform: none;
 }
 
-
-/* ================================
-   SCROLLBAR
-================================ */
-
 .post-modal-content::-webkit-scrollbar {
     width: 6px;
 }
@@ -389,6 +379,292 @@
         );
 
     border-radius: 10px;
+}
+
+.post-owner-actions {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 15px;
+}
+.post-owner-actions button {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    position: relative;
+
+    color: #fff;
+    background: rgba(255, 255, 255, 0.06);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease;
+}
+.post-owner-actions button i {
+    font-size: 15px;
+    transition: transform 0.25s ease;
+}
+
+
+.post-edit-btn {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(99, 102, 241, 0.20),
+            rgba(168, 85, 247, 0.18)
+        ) !important;
+
+    border-color: rgba(139, 92, 246, 0.35) !important;
+}
+
+.post-edit-btn i {
+    color: #a78bfa;
+}
+
+.post-edit-btn:hover {
+    transform: translateY(-3px);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(99, 102, 241, 0.40),
+            rgba(168, 85, 247, 0.38)
+        ) !important;
+    border-color: rgba(167, 139, 250, 0.7) !important;
+
+    box-shadow:
+        0 8px 25px rgba(124, 58, 237, 0.25),
+        0 0 15px rgba(139, 92, 246, 0.15);
+}
+
+.post-edit-btn:hover i {
+    transform: rotate(-8deg) scale(1.1);
+}
+.post-delete-btn {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(239, 68, 68, 0.16),
+            rgba(236, 72, 153, 0.12)
+        ) !important;
+
+    border-color: rgba(239, 68, 68, 0.30) !important;
+}
+
+.post-delete-btn i {
+    color: #fb7185;
+}
+
+.post-delete-btn:hover {
+    transform: translateY(-3px);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(239, 68, 68, 0.35),
+            rgba(236, 72, 153, 0.30)
+        ) !important;
+
+    border-color: rgba(251, 113, 133, 0.65) !important;
+
+    box-shadow:
+        0 8px 25px rgba(239, 68, 68, 0.22),
+        0 0 15px rgba(236, 72, 153, 0.12);
+}
+
+.post-delete-btn:hover i {
+    transform: scale(1.12);
+}
+
+.post-owner-actions button:active {
+    transform: scale(0.92);
+}
+
+.post-owner-actions button::after {
+    position: absolute;
+    bottom: -34px;
+    left: 50%;
+
+    transform: translateX(-50%) translateY(-4px);
+
+    padding: 5px 9px;
+    border-radius: 7px;
+
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+
+    color: #fff;
+    background: rgba(15, 15, 30, 0.95);
+
+    border: 1px solid rgba(255, 255, 255, 0.10);
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition: all 0.2s ease;
+
+    z-index: 20;
+}
+
+.post-edit-btn::after {
+    content: "Edit post";
+}
+
+.post-delete-btn::after {
+    content: "Delete post";
+}
+
+.post-owner-actions button:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.comments-section {
+    margin-top: 15px;
+    padding: 15px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.comment-item {
+    display: flex;
+    gap: 10px;
+    padding: 12px 0;
+}
+
+.comment-avatar {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: 700;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6366f1,
+            #a855f7,
+            #ec4899
+        );
+}
+
+.comment-content {
+    flex: 1;
+}
+
+.comment-content strong {
+    color: #fff;
+    font-size: 14px;
+}
+
+.comment-content p {
+    margin: 4px 0;
+    color: rgba(255,255,255,0.75);
+    font-size: 14px;
+}
+
+.comment-content small {
+    color: rgba(255,255,255,0.4);
+    font-size: 11px;
+}
+
+.comment-form {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.comment-input {
+    flex: 1;
+
+    padding: 11px 14px;
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    outline: none;
+
+    color: white;
+
+    background: rgba(255,255,255,0.06);
+}
+
+.comment-input::placeholder {
+    color: rgba(255,255,255,0.45);
+}
+
+.comment-form button {
+    width: 42px;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+    background:
+        linear-gradient(
+            135deg,
+            #6366f1,
+            #a855f7,
+            #ec4899
+        );
+    transition: 0.25s;
+}
+
+.comment-form button:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 8px 20px rgba(139,92,246,0.3);
+}
+
+.like-btn.liked {
+    color: #f472b6;
+}
+
+.like-btn.liked i {
+    color: #f43f5e;
+}
+
+@media (max-width: 600px) {
+
+    .post-owner-actions {
+        gap: 7px;
+        padding-left: 8px;
+    }
+
+    .post-owner-actions button {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+    }
+
+    .post-owner-actions button i {
+        font-size: 13px;
+    }
+
 }
 
 @media (max-width: 600px) {
