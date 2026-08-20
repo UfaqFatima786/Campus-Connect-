@@ -64,7 +64,12 @@ async function signup() {
             error
         } = await supabaseClient.auth.signUp({
             email: signupEmail,
-            password: signupPassword
+            password: signupPassword,
+            options: {
+                data: {
+                    name: name
+                }
+            }
         });
         console.log("Signup Data:", data);
         console.log("Signup Error:", error);
@@ -87,20 +92,32 @@ async function signup() {
             return;
         }
 
+        // const {
+        //     error: profileError
+        // } = await supabaseClient
+        //     .from("profiless")
+        //     .insert([
+        //         {
+        //             id: user.id,
+        //             name: name,
+        //             email: signupEmail,
+        //             university: university,
+        //             department: department,
+        //             semester: semester
+        //         }
+        //     ]);
         const {
             error: profileError
         } = await supabaseClient
             .from("profiless")
-            .insert([
-                {
-                    id: user.id,
-                    name: name,
-                    email: signupEmail,
-                    university: university,
-                    department: department,
-                    semester: semester
-                }
-            ]);
+            .update({
+                name: name,
+                email: signupEmail,
+                university: university,
+                department: department,
+                semester: semester
+            })
+            .eq("id", user.id);
         if (profileError) {
             console.error(
                 "Profile Creation Error:",

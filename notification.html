@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CampusConnect | Notifications</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="notifications.css">
+
+</head>
+
+
+<body>
+
+    <div class="bg-glow glow-one"></div>
+    <div class="bg-glow glow-two"></div>
+
+
+    <!-- NAVBAR -->
+
+    <header class="navbar">
+
+        <a href="dashboard.html" class="logo">
+
+            <span class="logo-icon">
+                <i class="fa-solid fa-graduation-cap"></i>
+            </span>
+
+            <span>
+                Campus<span>Connect</span>
+            </span>
+
+        </a>
+
+
+        <nav class="nav-links">
+
+            <a href="dashboard.html">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+            </a>
+
+            <a href="posts.html">
+                <i class="fa-solid fa-users"></i>
+                Community
+            </a>
+
+            <a href="events.html">
+                <i class="fa-solid fa-calendar-days"></i>
+                Events
+            </a>
+
+            <a href="studypartners.html">
+                <i class="fa-solid fa-user-group"></i>
+                Study Partners
+            </a>
+
+            <a href="polls.html">
+                <i class="fa-solid fa-square-poll-vertical"></i>
+                Polls
+            </a>
+
+        </nav>
+
+
+        <div class="nav-actions">
+
+            <a href="notifications.html" class="icon-btn">
+                <i class="fa-regular fa-bell"></i>
+                <span class="notification-dot"></span>
+            </a>
+
+
+            <a href="profile.html" class="profile-mini">
+                <div class="avatar" id="userAvatar"></div>
+                <div class="profile-mini-text">
+                    <strong id="navUserName"></strong>
+                    <small>Student</small>
+                </div>
+            </a>
+
+        </div>
+
+    </header>
+    <main class="notifications-container">
+        <section class="page-heading">
+            <div>
+                <span class="small-label">
+                    <i class="fa-regular fa-bell"></i>
+                    CAMPUS ACTIVITY
+                </span>
+                <h1>
+                    Notifications
+                    <span>Center</span>
+                </h1>
+                <p>
+                    Stay updated with likes, comments,
+                    event activity and campus announcements.
+                </p>
+            </div>
+            <button class="mark-all-btn" id="markAllRead">
+                <i class="fa-solid fa-check-double"></i>
+                Mark all as read
+            </button>
+        </section>
+        <section class="notification-stats">
+            <div class="mini-stat">
+                <div class="mini-icon blue">
+                    <i class="fa-regular fa-bell"></i>
+                </div>
+                <div>
+                    <span>Total</span>
+                    <strong id="totalNotifications">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+            <div class="mini-stat">
+                <div class="mini-icon pink">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                </div>
+                <div>
+                    <span>Unread</span>
+                    <strong id="unreadNotifications">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="mini-stat">
+
+                <div class="mini-icon purple">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+
+                <div>
+
+                    <span>Latest</span>
+
+                    <strong id="latestActivity">
+                        —
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+        <section class="notification-card">
+
+
+            <div class="notification-header">
+
+                <div>
+
+                    <span class="card-label">
+
+                        <i class="fa-solid fa-sparkles"></i>
+
+                        RECENT ACTIVITY
+
+                    </span>
+
+                    <h2>
+                        Your Notifications
+                    </h2>
+
+                </div>
+
+
+                <div class="filters">
+
+                    <button class="filter-btn active" data-filter="all">
+
+                        All
+
+                    </button>
+
+                    <button class="filter-btn" data-filter="unread">
+
+                        Unread
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- JS WILL INSERT NOTIFICATIONS HERE -->
+
+            <div class="notification-list" id="notificationList">
+
+            </div>
+
+
+            <!-- EMPTY STATE -->
+
+            <div class="empty-state" id="emptyState">
+
+                <div class="empty-icon">
+
+                    <i class="fa-regular fa-bell-slash"></i>
+
+                </div>
+
+                <h3>
+                    You're all caught up!
+                </h3>
+
+                <p>
+                    No new notifications at the moment.
+                </p>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+    <footer class="footer">
+        <p>
+            © 2026 CampusConnect.
+            <span>
+                Connect • Learn • Grow
+            </span>
+        </p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"> </script>
+    <script src="supabase.js"></script>
+    <script src="notifications.js"></script>
+    <script src="posts.js"></script>
+
+</body>
+
+</html>

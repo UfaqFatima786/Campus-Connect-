@@ -240,50 +240,31 @@ document.addEventListener(
 );
 loadPolls();
 
-// const createPollBtn =
-//     document.getElementById("createPollBtn");
+const createPollBtn =
+    document.getElementById("createPollBtn");
+const pollModal = document.getElementById("pollModal");
+const closePollModal = document.getElementById("closePollModal");
+const createPollForm = document.getElementById("createPollForm");
 
-// const pollModal =
-//     document.getElementById("pollModal");
+if (createPollBtn && pollModal) {
+    createPollBtn.addEventListener("click", () => {
+        pollModal.classList.add("show");
+    });
+}
 
-// const closePollModal =
-//     document.getElementById("closePollModal");
+if (closePollModal && pollModal) {
+    closePollModal.addEventListener("click", () => {
+        pollModal.classList.remove("show");
+    });
+}
 
-// const createPollForm =
-//     document.getElementById("createPollForm");
-// if (createPollBtn) {
-//     createPollBtn.addEventListener(
-//         "click",
-//         function () {
-//             pollModal.classList.add("show");
-//         }
-//     );
-
-// }
-
-// if (closePollModal) {
-//     closePollModal.addEventListener(
-//         "click",
-//         function () {
-//             pollModal.classList.remove("show");
-
-//         }
-//     );
-// }
-
-// if (pollModal) {
-//     pollModal.addEventListener(
-//         "click",
-//         function (e) {
-//             if (e.target === pollModal) {
-//                 pollModal.classList.remove("show");
-
-//             }
-
-//         }
-//     );
-
-// }
+if (pollModal) {
+    pollModal.addEventListener("click", (e) => {
+        if (e.target === pollModal) {
+            pollModal.classList.remove("show");
+        }
+    });
+}
 const postModal = document.getElementById("postModal");
 const openPostModal = document.getElementById("openPostModal");
 const closePostModal = document.getElementById("closePostModal");
