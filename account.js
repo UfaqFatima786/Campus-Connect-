@@ -92,32 +92,20 @@ async function signup() {
             return;
         }
 
-        // const {
-        //     error: profileError
-        // } = await supabaseClient
-        //     .from("profiless")
-        //     .insert([
-        //         {
-        //             id: user.id,
-        //             name: name,
-        //             email: signupEmail,
-        //             university: university,
-        //             department: department,
-        //             semester: semester
-        //         }
-        //     ]);
         const {
             error: profileError
         } = await supabaseClient
             .from("profiless")
-            .update({
+            .upsert({
+                id: user.id,
                 name: name,
                 email: signupEmail,
                 university: university,
                 department: department,
                 semester: semester
-            })
-            .eq("id", user.id);
+            }, {
+                onConflict: "id"
+            });
         if (profileError) {
             console.error(
                 "Profile Creation Error:",

@@ -1,47 +1,4 @@
-// async function createNotification({
-//     userId,
-//     type,
-//     title,
-//     message
-// }) {
 
-//     if (!userId) {
-//         console.error(
-//             "Notification user ID missing"
-//         );
-//         return;
-//     }
-
-//     const {
-//         data,
-//         error
-//     } = await supabaseClient
-//         .from("notifications")
-//         .insert({
-//             user_id: userId,
-//             type: type,
-//             title: title,
-//             message: message,
-//             is_read: false
-//         })
-//         .select()
-//         .single();
-
-//     if (error) {
-
-//         console.error(
-//             "Notification creation error:",
-//             error
-//         );
-
-//         return;
-//     }
-
-//     console.log(
-//         "Notification created successfully:",
-//         data
-//     );
-// }
 async function createNotification({
     userId,
     type,
@@ -167,7 +124,7 @@ async function loadPosts() {
             error: profileError
         } = await supabaseClient
             .from("profiless")
-            .select("id, name")
+            .select("id, name, email")
             .in("id", userIds);
 
         if (profileError) {
@@ -201,7 +158,12 @@ async function loadPosts() {
                 profileMap[post.user_id];
 
             const userName =
-                profile?.name || "User";
+                profile?.name?.trim() ||
+                (currentUser?.id === post.user_id
+                    ? currentUser.user_metadata?.name
+                    : "") ||
+                profile?.email?.split("@")[0] ||
+                "Student";
 
             const firstLetter =
                 userName
@@ -360,7 +322,7 @@ async function loadPosts() {
 
         }).join("");
 
-    // await initializePostInteractions(posts);
+    await initializePostInteractions(posts);
 
 }
 async function initializePostInteractions(posts) {
@@ -967,11 +929,7 @@ document.addEventListener("click", async function (e) {
     likeBtn.disabled = false;
 
 });
-
-async function loadComments(
-    postId,
-    commentsSection
-) {
+async function loadComments(postId, commentsSection) {
 
     commentsSection.innerHTML = `
         <div class="comments-loading">
@@ -992,10 +950,7 @@ async function loadComments(
 
     if (error) {
 
-        console.error(
-            "Comments Error:",
-            error
-        );
+        console.error("Comments Error:", error);
 
         commentsSection.innerHTML = `
             <p>
@@ -1018,32 +973,87 @@ async function loadComments(
 
     } else {
 
+        // Get all unique user IDs from comments
+        const userIds = [
+            ...new Set(
+                comments
+                    .map(comment => comment.user_id)
+                    .filter(Boolean)
+            )
+        ];
+
+        // Fetch profiles
+        let profiles = [];
+
+        if (userIds.length > 0) {
+
+            const {
+                data: profileData,
+                error: profileError
+            } = await supabaseClient
+                .from("profiless")
+                .select("id, name, email")
+                .in("id", userIds);
+
+            if (profileError) {
+                console.error(
+                    "Profile Error:",
+                    profileError
+                );
+            } else {
+                profiles = profileData || [];
+            }
+        }
+
+        // Create profile lookup
+        const profileMap = {};
+
+        profiles.forEach(profile => {
+            profileMap[profile.id] = profile;
+        });
+
         commentsHTML = comments.map(comment => {
+
+            const profile = profileMap[comment.user_id];
+
+            const userName =
+                profile?.name ||
+                profile?.email?.split("@")[0] ||
+                "Student";
+
+            // First letter for avatar
+            const avatarLetter =
+                userName.charAt(0).toUpperCase();
 
             return `
                 <div class="comment-item">
 
                     <div class="comment-avatar">
-                        U
+                        ${avatarLetter}
                     </div>
 
                     <div class="comment-content">
 
                         <strong>
-                            Student
+                            ${escapeHTML(userName)}
                         </strong>
 
                         <p>
-                            ${comment.comment || comment.content || ""}
+                            ${escapeHTML(
+                                comment.comment ||
+                                comment.content ||
+                                ""
+                            )}
                         </p>
 
                         <small>
-                            ${comment.created_at
-                    ? new Date(
-                        comment.created_at
-                    ).toLocaleString()
-                    : ""
-                }
+                            ${
+                                comment.created_at
+                                    ? new Date(
+                                        comment.created_at
+                                    ).toLocaleString()
+                                    : ""
+                            }
                         </small>
 
                     </div>
@@ -1053,6 +1063,7 @@ async function loadComments(
 
         }).join("");
     }
+
     commentsSection.innerHTML = `
 
         <div class="comment-list">
@@ -1082,6 +1093,121 @@ async function loadComments(
 
     `;
 }
+
+// async function loadComments(
+//     postId,
+//     commentsSection
+// ) {
+
+//     commentsSection.innerHTML = `
+//         <div class="comments-loading">
+//             Loading comments...
+//         </div>
+//     `;
+
+//     const {
+//         data: comments,
+//         error
+//     } = await supabaseClient
+//         .from("post_comments")
+//         .select("*")
+//         .eq("post_id", postId)
+//         .order("created_at", {
+//             ascending: true
+//         });
+
+//     if (error) {
+
+//         console.error(
+//             "Comments Error:",
+//             error
+//         );
+
+//         commentsSection.innerHTML = `
+//             <p>
+//                 Unable to load comments.
+//             </p>
+//         `;
+
+//         return;
+//     }
+
+//     let commentsHTML = "";
+
+//     if (!comments || comments.length === 0) {
+
+//         commentsHTML = `
+//             <p class="no-comments">
+//                 No comments yet. Be the first to comment!
+//             </p>
+//         `;
+
+//     } else {
+
+//         commentsHTML = comments.map(comment => {
+
+//             return `
+//                 <div class="comment-item">
+
+//                     <div class="comment-avatar">
+//                         U
+//                     </div>
+
+//                     <div class="comment-content">
+
+//                         <strong>
+//                             Student
+//                         </strong>
+
+//                         <p>
+//                             ${comment.comment || comment.content || ""}
+//                         </p>
+
+//                         <small>
+//                             ${comment.created_at
+//                     ? new Date(
+//                         comment.created_at
+//                     ).toLocaleString()
+//                     : ""
+//                 }
+//                         </small>
+
+//                     </div>
+
+//                 </div>
+//             `;
+
+//         }).join("");
+//     }
+//     commentsSection.innerHTML = `
+
+//         <div class="comment-list">
+
+//             ${commentsHTML}
+
+//         </div>
+
+//         <form
+//             class="comment-form"
+//             data-post-id="${postId}"
+//         >
+
+//             <input
+//                 type="text"
+//                 class="comment-input"
+//                 placeholder="Write a comment..."
+//                 maxlength="500"
+//                 required
+//             >
+
+//             <button type="submit">
+//                 <i class="fa-solid fa-paper-plane"></i>
+//             </button>
+
+//         </form>
+
+//     `;
+// }
 
 document.addEventListener(
     "submit",

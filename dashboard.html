@@ -10,9 +10,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="gsap.css">
+
 </head>
 
 <body>
+<div id="pointer"></div>
     <div class="bg-glow glow-one"></div>
     <div class="bg-glow glow-two"></div>
     <header class="navbar">
@@ -45,10 +48,10 @@
             </a>
         </nav>
         <div class="nav-actions">
-            <button class="icon-btn"><a href="notification.html">
-                <i class="fa-regular fa-bell"></i></a>
+            <a href="notification.html" class="icon-btn">
+                <i class="fa-regular fa-bell"></i>
                 <span class="notification-dot"></span>
-            </button>
+            </a>
 
             <a href="profile.html" class="profile-mini">
                 <div class="avatar" id="userAvatar"></div>
@@ -302,11 +305,11 @@
             <span>Connect • Learn • Grow</span>
         </p>
     </footer>
-   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<script src="supabase.js"></script>
-
-<script src="dashboard.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="supabase.js"></script>
+<script src="gsap.js"></script>
+    <script src="dashboard.js"></script>
 
 </body>
 

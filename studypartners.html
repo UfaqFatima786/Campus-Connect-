@@ -11,10 +11,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="studypartner.css">
-
+    <link rel="stylesheet" href="gsap.css">
 </head>
 
 <body>
+    <div id="pointer"></div>
     <div class="bg-glow glow-one"></div>
     <div class="bg-glow glow-two"></div>
     <header class="navbar">
@@ -48,21 +49,21 @@
         </nav>
         <div class="nav-actions">
             <div class="nav-actions">
-            <button class="icon-btn"><a href="notification.html">
-                <i class="fa-regular fa-bell"></i></a>
-                <span class="notification-dot"></span>
-            </button>
-            <a href="profile.html" class="profile-mini">
-                <div class="avatar" id="userAvatar"></div>
-                <div class="profile-mini-text">
-                    <strong id="navUserName"></strong>
-                    <small>Student</small>
-                </div>
-            </a>
-            <button class="menu-btn">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </div>
+                <button class="icon-btn"><a href="notification.html">
+                        <i class="fa-regular fa-bell"></i></a>
+                    <span class="notification-dot"></span>
+                </button>
+                <a href="profile.html" class="profile-mini">
+                    <div class="avatar" id="userAvatar"></div>
+                    <div class="profile-mini-text">
+                        <strong id="navUserName"></strong>
+                        <small>Student</small>
+                    </div>
+                </a>
+                <button class="menu-btn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
         </div>
     </header>
     <main class="study-container">
@@ -198,8 +199,12 @@
         </p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="supabase.js"></script>
     <script src="studypartners.js"></script>
     <script src="dashboard.js"></script>
+    <script src="gsap.js"></script>
+
 </body>
+
 </html>
