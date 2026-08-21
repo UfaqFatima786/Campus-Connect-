@@ -116,135 +116,79 @@
         <section class="partners-grid" id="partnersContainer">
         </section>
         <div class="profile-modal" id="profileModal">
-
             <div class="profile-modal-content">
-
                 <button class="modal-close" id="closeProfileModal">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
-
                 <div class="modal-heading">
                     <span class="small-label">
                         <i class="fa-solid fa-user-plus"></i>
                         STUDY PARTNER PROFILE
                     </span>
-
                     <h2>Create Study Partner Profile</h2>
-
                     <p>
                         Add your details so other students can find you.
                     </p>
                 </div>
-
                 <form id="studyPartnerForm">
-
                     <div class="form-group">
-
                         <label>Name</label>
-
                         <input type="text" id="partnerName" placeholder="Enter your name" required>
-
                     </div>
-
-
                     <div class="form-group">
-
                         <label>Profile Picture URL</label>
-
                         <input type="url" id="partnerPicture" placeholder="https://example.com/profile.jpg">
-
                         <small>
                             Add an image URL for your profile picture.
                         </small>
-
                     </div>
-
-
                     <div class="form-group">
-
                         <label>Subjects</label>
-
                         <input type="text" id="partnerSubjects" placeholder="e.g. JavaScript, Database, Python"
                             required>
-
                         <small>
                             Separate multiple subjects with commas.
                         </small>
-
                     </div>
-
-
                     <div class="form-group">
-
                         <label>Skills</label>
-
                         <input type="text" id="partnerSkills" placeholder="e.g. HTML, CSS, JavaScript" required>
-
                         <small>
                             Separate multiple skills with commas.
                         </small>
-
                     </div>
-
-
                     <div class="form-group">
-
                         <label>Experience Level</label>
-
                         <select id="partnerExperience" required>
-
                             <option value="">
                                 Select experience level
                             </option>
-
                             <option value="Beginner">
                                 Beginner
                             </option>
-
                             <option value="Intermediate">
                                 Intermediate
                             </option>
-
                             <option value="Advanced">
                                 Advanced
                             </option>
-
                         </select>
-
                     </div>
-
-
                     <div class="form-group">
-
                         <label>Availability</label>
-
                         <input type="text" id="partnerAvailability" placeholder="e.g. Weekdays 6 PM - 9 PM" required>
-
                     </div>
-
-
                     <div class="form-group">
-
                         <label>Short Introduction</label>
-
                         <textarea id="partnerIntroduction" rows="4"
                             placeholder="Tell other students a little about yourself..." required></textarea>
-
                     </div>
-
-
                     <button type="submit" class="gradient-btn profile-submit-btn">
-
                         <i class="fa-solid fa-user-plus"></i>
-
                         Create Profile
-
                     </button>
-
                 </form>
-
             </div>
-
         </div>
     </main>
     <footer class="footer">
@@ -257,7 +201,5 @@
     <script src="supabase.js"></script>
     <script src="studypartners.js"></script>
     <script src="dashboard.js"></script>
-
 </body>
-
 </html>

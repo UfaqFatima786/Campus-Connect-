@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,20 +11,16 @@
     <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="posts.css">
 </head>
-
 <body>
     <div class="bg-glow glow-one"></div>
     <div class="bg-glow glow-two"></div>
     <header class="navbar">
-
         <a href="dashboard.html" class="logo">
             <span class="logo-icon">
                 <i class="fa-solid fa-graduation-cap"></i>
             </span>
-
             <span>Campus<span>Connect</span></span>
         </a>
-
         <nav class="nav-links">
             <a href="dashboard.html">
                 <i class="fa-solid fa-house"></i>
@@ -65,43 +60,32 @@
             </button>
         </div>
     </header>
-
     <main class="posts-container">
-
         <div class="page-heading">
-
             <span class="small-label">
                 <i class="fa-solid fa-users"></i>
                 STUDENT COMMUNITY
             </span>
-
             <h1>Community Posts</h1>
-
             <p>
                 Share ideas, ask questions and connect with
                 students across your campus.
             </p>
-
         </div>
         <div class="posts-toolbar">
-
             <div class="search-box">
                 <i class="fa-solid fa-magnifying-glass"></i>
-
                 <input type="text" placeholder="Search community posts...">
             </div>
-
             <select class="filter-select">
                 <option>Latest Posts</option>
                 <option>Most Liked</option>
                 <option>Most Commented</option>
             </select>
-
             <button class="gradient-btn" id="openPostModal">
                 <i class="fa-solid fa-plus"></i>
                 Create Post
             </button>
-
         </div>
         <section class="posts-layout">
             <div class="posts-feed" id="postsContainer">
@@ -277,89 +261,68 @@
                             <span class="card-label pink-label">
                                 TRENDING
                             </span>
-
                             <h3>Popular Topics</h3>
                         </div>
                     </div>
-
                     <div class="topic-list">
-
                         <div class="topic">
                             <span>#WebDevelopment</span>
                             <small>124 posts</small>
                         </div>
-
                         <div class="topic">
                             <span>#JavaScript</span>
                             <small>98 posts</small>
                         </div>
-
                         <div class="topic">
                             <span>#Hackathon</span>
                             <small>76 posts</small>
                         </div>
-
                         <div class="topic">
                             <span>#StudyGroups</span>
                             <small>64 posts</small>
                         </div>
-
                     </div>
-
                 </div>
-
             </aside>
-
         </section>
         <div class="post-modal" id="postModal">
             <div class="post-modal-content">
-
                 <div class="modal-header">
                     <div>
                         <span class="small-label">COMMUNITY</span>
                         <h2>Create a Post</h2>
                         <p>Share something with your campus community.</p>
                     </div>
-
                     <button type="button" class="close-modal" id="closePostModal">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                 </div>
-
                 <form id="createPostForm">
-
                     <div class="form-group">
                         <label for="postTitle">
                             Post Title
                         </label>
-
                         <input type="text" id="postTitle" placeholder="Give your post a title..." maxlength="150"
                             required>
                     </div>
-
                     <div class="form-group">
                         <label for="postContent">
                             What's on your mind?
                         </label>
-
                         <textarea id="postContent" rows="6" placeholder="Share something with your campus community..."
                             maxlength="1000" required></textarea>
                     </div>
-
                     <div class="post-form-info">
                         <i class="fa-solid fa-circle-info"></i>
                         <span>
                             Your post will be visible to the CampusConnect community.
                         </span>
                     </div>
-
                     <button type="submit" class="gradient-btn create-post-submit">
                         <i class="fa-solid fa-paper-plane"></i>
                         Publish Post
                     </button>
-
                 </form>
-
             </div>
         </div>
     </main>

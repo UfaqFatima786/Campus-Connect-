@@ -14,7 +14,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: #8f52b8; */
     background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9vzc5N-oa8bGRSTZm_oECTvkXgxmtiPpEix-5YnePsA&s=10');
     background-position: center;
     background-repeat: no-repeat;

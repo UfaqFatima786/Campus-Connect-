@@ -1,3 +1,47 @@
+// async function createNotification({
+//     userId,
+//     type,
+//     title,
+//     message
+// }) {
+
+//     if (!userId) {
+//         console.error(
+//             "Notification user ID missing"
+//         );
+//         return;
+//     }
+
+//     const {
+//         data,
+//         error
+//     } = await supabaseClient
+//         .from("notifications")
+//         .insert({
+//             user_id: userId,
+//             type: type,
+//             title: title,
+//             message: message,
+//             is_read: false
+//         })
+//         .select()
+//         .single();
+
+//     if (error) {
+
+//         console.error(
+//             "Notification creation error:",
+//             error
+//         );
+
+//         return;
+//     }
+
+//     console.log(
+//         "Notification created successfully:",
+//         data
+//     );
+// }
 async function createNotification({
     userId,
     type,
@@ -5,10 +49,14 @@ async function createNotification({
     message
 }) {
 
+    console.log("🔔 CREATE NOTIFICATION CALLED");
+    console.log("userId:", userId);
+    console.log("type:", type);
+    console.log("title:", title);
+    console.log("message:", message);
+
     if (!userId) {
-        console.error(
-            "Notification user ID missing"
-        );
+        console.error("❌ Notification user ID missing");
         return;
     }
 
@@ -30,7 +78,7 @@ async function createNotification({
     if (error) {
 
         console.error(
-            "Notification creation error:",
+            "❌ NOTIFICATION INSERT ERROR:",
             error
         );
 
@@ -38,11 +86,10 @@ async function createNotification({
     }
 
     console.log(
-        "Notification created successfully:",
+        "✅ NOTIFICATION CREATED:",
         data
     );
 }
-
 async function loadPosts() {
 
     const {
@@ -59,10 +106,6 @@ async function loadPosts() {
             Loading posts...
         </div>
     `;
-
-    // =========================
-    // LOAD POSTS
-    // =========================
 
     const {
         data: posts,
@@ -106,11 +149,6 @@ async function loadPosts() {
         return;
     }
 
-
-    // =========================
-    // GET USER IDS
-    // =========================
-
     const userIds = [
         ...new Set(
             posts
@@ -119,10 +157,6 @@ async function loadPosts() {
         )
     ];
 
-
-    // =========================
-    // LOAD USERS FROM PROFILESS
-    // =========================
 
     let profiles = [];
 
@@ -326,7 +360,7 @@ async function loadPosts() {
 
         }).join("");
 
-    await initializePostInteractions(posts);
+    // await initializePostInteractions(posts);
 
 }
 async function initializePostInteractions(posts) {
@@ -352,12 +386,6 @@ async function initializePostInteractions(posts) {
         if (!likeBtn || !commentBtn) {
             continue;
         }
-
-
-        // =========================
-        // GET COUNTS
-        // =========================
-
         const counts =
             await getPostCounts(post.id);
 
@@ -387,11 +415,6 @@ async function initializePostInteractions(posts) {
                 counts.comments;
 
         }
-
-
-        // =========================
-        // CHECK CURRENT USER LIKE
-        // =========================
 
         if (user) {
 
@@ -1030,7 +1053,6 @@ async function loadComments(
 
         }).join("");
     }
-
     commentsSection.innerHTML = `
 
         <div class="comment-list">
@@ -1129,6 +1151,43 @@ document.addEventListener(
                 error.message
             );
 
+            const { data: post, error: postError } =
+                await supabaseClient
+                    .from("posts")
+                    .select("user_id")
+                    .eq("id", postId)
+                    .single();
+
+            if (!postError && post) {
+
+                if (post.user_id !== user.id) {
+
+                    const { data: profile } =
+                        await supabaseClient
+                            .from("profiless")
+                            .select("name")
+                            .eq("id", user.id)
+                            .single();
+
+                    const commenterName =
+                        profile?.name || "Someone";
+
+                    await createNotification({
+
+                        userId: post.user_id,
+
+                        type: "comment",
+
+                        title:
+                            `${commenterName} commented on your post`,
+
+                        message:
+                            `💬 ${commenterName} commented: "${commentText}"`
+
+                    });
+
+                }
+            }
             submitButton.disabled = false;
 
             return;
@@ -1257,11 +1316,6 @@ async function toggleLike(postId, likeBtn) {
         return;
     }
 
-
-    // ============================================
-    // GET CURRENT USER NAME FROM PROFILESS
-    // ============================================
-
     const {
         data: profile,
         error: profileError
@@ -1283,11 +1337,6 @@ async function toggleLike(postId, likeBtn) {
     const likerName =
         profile?.name || "Someone";
 
-
-    // ============================================
-    // CHECK EXISTING LIKE
-    // ============================================
-
     const {
         data: existingLike,
         error: likeCheckError
@@ -1308,11 +1357,6 @@ async function toggleLike(postId, likeBtn) {
         return;
     }
 
-
-    // ============================================
-    // UNLIKE
-    // ============================================
-
     if (existingLike) {
 
         const {
@@ -1331,10 +1375,6 @@ async function toggleLike(postId, likeBtn) {
 
             return;
         }
-
-
-        // Update UI
-
         if (likeBtn) {
 
             likeBtn.classList.remove("liked");
@@ -1362,10 +1402,6 @@ async function toggleLike(postId, likeBtn) {
     }
 
 
-    // ============================================
-    // LIKE POST
-    // ============================================
-
     const {
         error: likeError
     } = await supabaseClient
@@ -1374,62 +1410,43 @@ async function toggleLike(postId, likeBtn) {
             post_id: postId,
             user_id: user.id
         });
-
     if (likeError) {
-
         console.error(
             "Like error:",
             likeError
         );
-
         alert(
             "Unable to like this post."
         );
-
         return;
     }
-
     if (likeBtn) {
-
         likeBtn.classList.add("liked");
-
         const icon =
             likeBtn.querySelector("i");
-
         if (icon) {
-
             icon.className =
                 "fa-solid fa-heart";
 
         }
-
         await updateLikeCount(
             postId,
             likeBtn
         );
-
     }
-
-
     console.log("Post liked.");
     if (post.user_id === user.id) {
-
         console.log(
             "Own post liked — notification skipped."
         );
-
         return;
     }
 
     await createNotification({
-
         userId: post.user_id,
-
         type: "like",
-
         title:
             `${likerName} liked your post`,
-
         message:
             `❤️ ${likerName} liked your post.`
 
